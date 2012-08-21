@@ -15,7 +15,7 @@
 		<table border="1">
 	
 		<caption>Please enter your installation details (new JSP)</caption>
-		
+		<p>new line to test sync</p>
 		<tr>
         	<td>System Size (KW)</td>
         	<td><input type="text" name="systemSize"></td>        
