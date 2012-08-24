@@ -1,0 +1,119 @@
+package com.ssc;
+
+public class BankOfPanels {
+	
+	private Double systemSize;                        // System size in kW
+	
+	//private Double percentageOnNorthRoof;		      // percentage in decimal form
+	//private Double percentageOnWestRoof;		 	  // percentage in decimal form	
+	private Double efficiencyLossNorthRoof;		 	  // percentage in decimal form
+	private Double efficiencyLossWestRoof;		 	  // percentage in decimal form
+	private Double panelEfficiency;				 	  // percentage in decimal form
+	private Double panelAgeEfficiencyLoss;		      // percentage in decimal form
+	
+	private Double[] percentagesOnOrientations;       // percentages in decimal form
+	private final Integer NUMBER_OF_ORIENTATIONS = 2; // number of orientations 
+	private final Integer NORTH = 0;			      // constant for index of north
+	private final Integer WEST = 1;                   // constant for index of west
+	
+	public BankOfPanels() {
+		
+	}
+	
+	public void setSystemSize(Double input) throws SolarPowerSystemException {		
+		if (input <= 0)
+			throw new SolarPowerSystemException("System size should be greater than 0.");
+		else
+			this.systemSize = input;		
+	}
+	
+	public void setPercentagesOnOrientations(Double north, 
+			Double west) throws SolarPowerSystemException {
+		if (!isValidPercentage(north) || !isValidPercentage(west)) {
+			throw new SolarPowerSystemException("Percentages on orientations " +
+												"should be valid percentage.");
+		} else if ((north + west) != 1) {
+			throw new SolarPowerSystemException("The sum of the percentages " +
+												"on both orientations should be 1");
+		} else {
+			this.percentagesOnOrientations = new Double[NUMBER_OF_ORIENTATIONS];
+			this.percentagesOnOrientations[NORTH] = north;
+			this.percentagesOnOrientations[WEST] = west;
+		}		
+	}
+	
+	public void setPercentagesOnOrientations(Integer north,
+			Integer west) throws SolarPowerSystemException {		
+		this.setPercentagesOnOrientations(persentageToDecimalForm(north), persentageToDecimalForm(west));
+		
+		
+	}
+	
+	private boolean isValidPercentage (Double input) {
+		if (input >= 0.0 && input <= 1.0)		
+			return true;
+		else
+			return false;
+	}
+	
+		
+	private Double persentageToDecimalForm(Integer input) {
+		return input/100.00;
+	}
+	
+	public void setEfficiencyLossNorthRoof(Double input) throws SolarPowerSystemException {
+		if (!isValidPercentage(input)) {
+			throw new SolarPowerSystemException("Efficiency loss on north roof " +
+												"should be valid percentage.");
+		} else {
+			this.efficiencyLossNorthRoof = input;
+		}
+		
+	}	
+	
+	public void setEfficiencyLossWestRoof(Double input) throws SolarPowerSystemException {
+		if (!isValidPercentage(input)) {
+			throw new SolarPowerSystemException("Efficiency loss on west roof " +
+												"should be valid percentage.");
+		} else {
+			this.efficiencyLossWestRoof = input;
+		}
+	}
+	
+	public void setPanelEfficiency(Double input) throws SolarPowerSystemException {
+		if (!isValidPercentage(input)) {
+			throw new SolarPowerSystemException("Panel efficiency " +
+												"should be valid percentage.");
+		} else {
+			this.panelEfficiency = input;
+		}
+	}	
+	
+	public void setPanelAgeEfficiencyLoss(Double input) throws SolarPowerSystemException {
+		if (!isValidPercentage(input)) {
+			throw new SolarPowerSystemException("Panel age efficiency loss " +
+												"should be valid percentage.");
+		} else {
+			this.panelAgeEfficiencyLoss = input;
+		}
+	}
+	
+	@Override
+	public String toString() {		
+		return "\n< Bank of Panels >" +
+			   "\nSystem Size:\t\t\t" +  this.systemSize +
+			   "\nPercentage on North Roof:\t" + this.percentagesOnOrientations[NORTH] +
+			   "\nPercentage on West Roof:\t" + this.percentagesOnOrientations[WEST] +
+			   "\nEfficiency Loss (North roof):\t" + this.efficiencyLossNorthRoof +
+			   "\nEfficiency Loss (west roof):\t" + this.efficiencyLossWestRoof +
+			   "\nPanel Efficiency:\t\t" + this.panelEfficiency +
+			   "\n";		
+	}
+	
+	public Double getOutput() {
+		return this.systemSize * this.panelEfficiency * 
+				(this.percentagesOnOrientations[NORTH] * (1 - this.efficiencyLossNorthRoof) +
+				 this.percentagesOnOrientations[WEST] * (1 - this.efficiencyLossWestRoof));		
+	}
+	
+}

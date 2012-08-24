@@ -15,21 +15,25 @@ import org.junit.Test;
 public class SolarPowerSystemTest {
 	
 	private SolarPowerSystem sps;
-	private final Double r = 19.664999999999996;
+	private final String r = "";
+
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before@Test
 	public void setUp() throws Exception {
 		sps = new SolarPowerSystem();
-		sps.setAverageDailyHoursOfSunlight(4.5);
-		sps.setEfficiencyLossNorthRoof(0.05);
-		sps.setEfficiencyLossWestRoof(0.15);
-		sps.setPercentageOnWestRoof(0.30);
-		sps.setPercentageOnNorthRoof(0.70);
-		sps.setPanelEfficiencye(1);
-		sps.setSystemSize(5);
-		sps.setInverterEfficiency(0.95);
+		sps.setSystemSize(4.95);
+        sps.setPercentagesOnOrientations(0.381, 0.619);
+        sps.setEfficiencyLossNorthRoof(0.05);
+        sps.setEfficiencyLossWestRoof(0.15);
+        sps.setPanelEfficiency(1.0);			
+        sps.setInverterEfficiency(0.96);		
+        sps.setAverageDailyHoursOfSunlight(4.5);
+        sps.setDayTimeHourlyUsage(1.0);
+        sps.setElectricityRate(0.1941);
+        sps.setFeedInFee(0.50);
+        sps.setSystemCost(18000.0);        
 	}
 
 	
@@ -39,7 +43,7 @@ public class SolarPowerSystemTest {
 	 */
 	@Test
 	public void testGetAverageDailySolarGeneration() {
-		assertEquals(this.r, (Double)this.sps.getAverageDailySolarGeneration());
+		assertEquals(this.r, this.sps.toString());
 	}
 
 }

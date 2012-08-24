@@ -12,16 +12,36 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 			throws IOException {
 		
 		SolarPowerSystem sps = new SolarPowerSystem();
-		
+		try {
+		/*	
 		sps.setAverageDailyHoursOfSunlight(Double.parseDouble(request.getParameter("averageDailyHoursOfSunlight")));
 		sps.setEfficiencyLossNorthRoof(Double.parseDouble(request.getParameter("efficiencyLossNorthRoof")));
-		sps.setEfficiencyLossWestRoof(Double.parseDouble(request.getParameter("efficiencyLossWestRoof")));
-		sps.setPercentageOnWestRoof(Double.parseDouble(request.getParameter("percentageOnWestRoof")));
-		sps.setPercentageOnNorthRoof(Double.parseDouble(request.getParameter("percentageOnNorthRoof")));
-		sps.setPanelEfficiencye(Double.parseDouble(request.getParameter("panelEfficiency")));
+		sps.setEfficiencyLossWestRoof(Double.parseDouble(request.getParameter("efficiencyLossWestRoof")));		
+		sps.setPercentagesOnOrientations(Double.parseDouble(request.getParameter("percentageOnWestRoof")),
+										 Double.parseDouble(request.getParameter("percentageOnNorthRoof")));
+		sps.setPanelEfficiency(Double.parseDouble(request.getParameter("panelEfficiency")));
 		sps.setSystemSize(Double.parseDouble(request.getParameter("systemSize")));
 		sps.setInverterEfficiency(Double.parseDouble(request.getParameter("inverterEfficiency")));
-		
+		*/
+			
+			
+			sps = new SolarPowerSystem();
+			sps.setSystemSize(4.95);
+	        sps.setPercentagesOnOrientations(0.381, 0.619);
+	        sps.setEfficiencyLossNorthRoof(0.05);
+	        sps.setEfficiencyLossWestRoof(0.15);
+	        sps.setPanelEfficiency(1.0);			
+	        sps.setInverterEfficiency(0.96);		
+	        sps.setAverageDailyHoursOfSunlight(4.5);
+	        sps.setDayTimeHourlyUsage(1.0);
+	        sps.setElectricityRate(0.1941);
+	        sps.setFeedInFee(0.50);
+	        sps.setSystemCost(18000.0);
+	        
+		} catch (SolarPowerSystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
