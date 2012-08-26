@@ -13,7 +13,7 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 		
 		SolarPowerSystem sps = new SolarPowerSystem();
 		try {
-		/*	
+		sps = new SolarPowerSystem();
 		sps.setAverageDailyHoursOfSunlight(Double.parseDouble(request.getParameter("averageDailyHoursOfSunlight")));
 		sps.setEfficiencyLossNorthRoof(Double.parseDouble(request.getParameter("efficiencyLossNorthRoof")));
 		sps.setEfficiencyLossWestRoof(Double.parseDouble(request.getParameter("efficiencyLossWestRoof")));		
@@ -22,21 +22,24 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 		sps.setPanelEfficiency(Double.parseDouble(request.getParameter("panelEfficiency")));
 		sps.setSystemSize(Double.parseDouble(request.getParameter("systemSize")));
 		sps.setInverterEfficiency(Double.parseDouble(request.getParameter("inverterEfficiency")));
-		*/
+		sps.setDayTimeHourlyUsage(Double.parseDouble(request.getParameter("dayTimeHourlyUsage")));
+        sps.setElectricityRate(Double.parseDouble(request.getParameter("electricityRatet")));
+        sps.setFeedInFee(Double.parseDouble(request.getParameter("feedInFee")));
+        sps.setSystemCost(Double.parseDouble(request.getParameter("systemCost")));
 			
 			
-			sps = new SolarPowerSystem();
-			sps.setSystemSize(4.95);
-	        sps.setPercentagesOnOrientations(0.381, 0.619);
-	        sps.setEfficiencyLossNorthRoof(0.05);
-	        sps.setEfficiencyLossWestRoof(0.15);
-	        sps.setPanelEfficiency(1.0);			
-	        sps.setInverterEfficiency(0.96);		
-	        sps.setAverageDailyHoursOfSunlight(4.5);
-	        sps.setDayTimeHourlyUsage(1.0);
-	        sps.setElectricityRate(0.1941);
-	        sps.setFeedInFee(0.50);
-	        sps.setSystemCost(18000.0);
+			//sps = new SolarPowerSystem();
+			//sps.setSystemSize(Double.parseDouble(request.getParameter("systemSize")));
+	        //sps.setPercentagesOnOrientations(0.381, 0.619);
+	        //sps.setEfficiencyLossNorthRoof(0.05);
+	        //sps.setEfficiencyLossWestRoof(0.15);
+	       //sps.setPanelEfficiency(1.0);			
+	        //sps.setInverterEfficiency(0.96);		
+	        //sps.setAverageDailyHoursOfSunlight(4.5);
+	        //sps.setDayTimeHourlyUsage(1.0);
+	        //sps.setElectricityRate(0.1941);
+	        //sps.setFeedInFee(0.50);
+	        //sps.setSystemCost(18000.0);
 	        
 		} catch (SolarPowerSystemException e) {
 			// TODO Auto-generated catch block
@@ -58,11 +61,11 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 			
 		} while (test2.hasMoreElements());
 		
-		response.getWriter().println("Average Daily Solar Generation: " + sps.getAverageDailySolarGeneration());
-		
+		response.getWriter().println("Result: " + sps.toString());
+		/*
 		String destination  ="/result.jsp?result=" + sps.getAverageDailySolarGeneration();        
 		response.sendRedirect(response.encodeRedirectURL(destination));
-		
+	*/	
 
 	}
 	

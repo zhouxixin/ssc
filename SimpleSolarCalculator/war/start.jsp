@@ -54,7 +54,27 @@
       	<tr>
         	<td>Average Daily Hours of Sunlight</td>
         	<td><input type="text" name="averageDailyHoursOfSunlight"></td>        
+      	</tr>
+      	
+      	<tr>
+        	<td>DayTimeHourlyUsage</td>
+        	<td><input type="text" name="dayTimeHourlyUsage"></td>        
       	</tr> 
+      	
+      	<tr>
+        	<td>ElectricityRatet</td>
+        	<td><input type="text" name="electricityRatet"></td>        
+      	</tr>  
+      	
+      	<tr>
+        	<td>FeedInFee</td>
+        	<td><input type="text" name="feedInFee"></td>        
+      	</tr>  
+      	
+      	<tr>
+        	<td>SystemCost</td>
+        	<td><input type="text" name="systemCost"></td>        
+      	</tr>  
       	
     	</table>
     	
