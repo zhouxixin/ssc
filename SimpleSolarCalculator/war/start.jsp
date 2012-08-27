@@ -9,72 +9,77 @@
 <title>Simple Solar Calculator</title>
 </head>
 <body>
+	<div class = "header">
+		<p>
+			Header
+		</p>
+	</div>
  <div class="contentArea">
   	<h1>Simple Solar Calculator</h1>
     
 	<form name="dataInputForm" class="dataInputForm" action="simplesolarcalculator" method="post" onsubmit="return formValidation()">
-		<table border="1">
+		<table>
 	
 		<caption>Please enter your installation details (new JSP)</caption>
 		<p>new line to test sync</p>
 		<tr>
         	<td>System Size (KW)</td>
-        	<td><input type="text" name="systemSize"></td>        
+        	<td><input type="text" name="systemSize" value="4.95"></td>        
         </tr>
       
         <tr>
         	<td>Percentage on North Roof</td>
-        	<td><input type="text" name="percentageOnNorthRoof"></td>        
+        	<td><input type="text" name="percentageOnNorthRoof" value="0.381"></td>        
         </tr>
       
         <tr>
         	<td>Percentage on West Roof</td>
-        	<td><input type="text" name="percentageOnWestRoof"></td>        
+        	<td><input type="text" name="percentageOnWestRoof" value="0.619"></td>        
         </tr>
       
       	<tr>
         	<td>Efficiency Loss (North Roof)</td>
-        	<td><input type="text" name="efficiencyLossNorthRoof"></td>        
+        	<td><input type="text" name="efficiencyLossNorthRoof" value="0.05"></td>        
       	</tr>
       
       	<tr>
        		<td>Efficiency Loss (West Roof)</td>
-        	<td><input type="text" name="efficiencyLossWestRoof"></td>        
+        	<td><input type="text" name="efficiencyLossWestRoof" value="0.15"></td>        
       	</tr>
       
       	<tr>
         	<td>Panel Efficiency</td>
-        	<td><input type="text" name="panelEfficiency"></td>        
+        	<td><input type="text" name="panelEfficiency" value="1.0"></td>        
       	</tr>
       
       	<tr>
         	<td>Inverter Efficiency</td>
-        	<td><input type="text" name="inverterEfficiency"></td>        
+        	<td><input type="text" name="inverterEfficiency" value="0.96"></td>        
       	</tr>
       
       	<tr>
         	<td>Average Daily Hours of Sunlight</td>
-        	<td><input type="text" name="averageDailyHoursOfSunlight"></td>        
+        	<td><input type="text" name="averageDailyHoursOfSunlight" value="4.5"></td>        
       	</tr>
       	
       	<tr>
         	<td>DayTimeHourlyUsage</td>
-        	<td><input type="text" name="dayTimeHourlyUsage"></td>        
+        	<td><input type="text" name="dayTimeHourlyUsage" value="1"></td>        
       	</tr> 
       	
       	<tr>
         	<td>ElectricityRatet</td>
-        	<td><input type="text" name="electricityRatet"></td>        
+        	<td><input type="text" name="electricityRatet" value="0.1941"></td>        
       	</tr>  
       	
       	<tr>
         	<td>FeedInFee</td>
-        	<td><input type="text" name="feedInFee"></td>        
+        	<td><input type="text" name="feedInFee" value="0.50"></td>        
       	</tr>  
       	
       	<tr>
         	<td>SystemCost</td>
-        	<td><input type="text" name="systemCost"></td>        
+        	<td><input type="text" name="systemCost" value="18000"></td>        
       	</tr>  
       	
     	</table>
@@ -86,6 +91,12 @@
 	</form>
     
 	</div>
+	<div class = "footer">
+		<p>
+			Footer
+		</p>
+	</div>
+	
 
 </body>
 </html>

@@ -1,7 +1,8 @@
 /*Set background color and font*/
 body {
-	background-color: #e0ebaf; 
-	text-align: center; 
+	/*background-color: #e0ebaf; */
+	text-align: center;
+	color: #007b43; 
 	font-family: Arial,Helvetica,sans-serif;	
 }
 
@@ -19,3 +20,26 @@ div.buttonArea {
 	margin: auto;
 	margin-top: 10px;
 }
+
+input:focus, input:hover {
+	border: thin solid #007b43;
+}
+
+input {
+border: thin dotted #007b43;
+}
+
+table {
+	BORDER=1 ;CELLPADDING=3 ;CELLSPACING=1; 
+    RULES=ROWS; FRAME=HSIDES;
+}
+
+div.header, div.footer{
+	margin: auto;
+	min-width: 800px;
+	background: #007b43;
+	text-align: center;
+	clear: both;
+}
+/*³£ÅÍÉ« ¤È¤­¤ï¤¤¤í
+#007b43*/
