@@ -4,6 +4,7 @@
 <html>
 <head>
 <link href = "./styles/style.css" rel = "stylesheet" type = "text/css"/>
+<script type="text/javascript" src = "./scripts/inputValidation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Simple Solar Calculator</title>
 </head>
@@ -11,7 +12,7 @@
  <div class="contentArea">
   	<h1>Simple Solar Calculator</h1>
     
-	<form action="simplesolarcalculator" method="post">
+	<form name="dataInputForm" class="dataInputForm" action="simplesolarcalculator" method="post" onsubmit="return formValidation()">
 		<table border="1">
 	
 		<caption>Please enter your installation details (new JSP)</caption>
