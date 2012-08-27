@@ -87,7 +87,14 @@
         	<td><input type="text" name="systemCost" value="18000"></td>
         	<td></td>
         	<td></td>        
-      	</tr>  
+      	</tr>
+      	
+      	<tr>
+        	<td>Annual Tariff Increase (%)</td>
+        	<td><input type="text" name="annualTariffIncrease" value="0.05"></td>
+        	<td>Investment Return Rate (%)</td>
+        	<td><input type="text" name="investmentReturnRate" value="0.05"></td>        
+      	</tr>   
       	
     	</table>    	
     	

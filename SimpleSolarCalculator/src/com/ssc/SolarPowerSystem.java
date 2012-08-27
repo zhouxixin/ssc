@@ -156,4 +156,20 @@ public class SolarPowerSystem {
 		
 		return sb.toString();
 	}
+	
+	public Double getAnnualTariffIncrease() {
+		return this.otherDetials.getAnnualTariffIncrease();
+	}
+	
+	public Double getInvestmentReturnRate() {
+		return this.otherDetials.getInvestmentReturnRate();
+	}
+	
+	public void setAnnualTariffIncrease(Double input) throws SolarPowerSystemException {
+		this.otherDetials.setAnnualTariffIncrease(input);
+	}
+	
+	public void setInvestmentReturnRate(Double input) throws SolarPowerSystemException {
+		this.otherDetials.setInvestmentReturnRate(input);
+	}
 }

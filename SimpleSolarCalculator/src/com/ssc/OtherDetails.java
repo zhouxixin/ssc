@@ -13,6 +13,9 @@ public class OtherDetails {
 	
 	private Double systemCost;		   // system cost in AUD
 	
+	private Double annualTariffIncrease;
+	private Double investmentReturnRate;
+	
 	public OtherDetails() {
 		
 	}
@@ -78,6 +81,25 @@ public class OtherDetails {
 		
 	}
 	
+	//not really need to be under 100%
+	public void setAnnualTariffIncrease(Double input) throws SolarPowerSystemException {
+		if (!BankOfPanels.isValidPercentage(input)) {
+			throw new SolarPowerSystemException("Annual tariff increase" +
+												"should be greater than 0");
+		} else {
+			this.annualTariffIncrease = input;
+		}
+	}
+	
+	public void setInvestmentReturnRate(Double input) throws SolarPowerSystemException {
+		if (!BankOfPanels.isValidPercentage(input)) {
+			throw new SolarPowerSystemException("Investment Return Rate" +
+												"should be greater than 0");
+		} else {
+			this.investmentReturnRate = input;
+		}
+	}
+	
 	public Double getAverageDailyHoursOfSunlight() {
 		return this.averageDailyHoursOfSunlight;
 	}
@@ -98,6 +120,14 @@ public class OtherDetails {
 		return this.systemCost;
 	}
 	
+	public Double getAnnualTariffIncrease() {
+		return this.annualTariffIncrease;
+	}
+	
+	public Double getInvestmentReturnRate() {
+		return this.investmentReturnRate;
+	}
+	
 	@Override
 	public String toString() {		
 		return "\n< Other Details >" +
@@ -105,7 +135,9 @@ public class OtherDetails {
 			   "\nDay Time Hourly Usage:\t\t" + this.getDayTimeHourlyUsage() +
 			   "\nElectricity Rate:\t\t" + this.getElectricityRate() +
 			   "\nFeed In Fee:\t\t\t" + this.getFeedInFee() +
-			   "\nSystem Cost:\t\t\t" + this.getSystemCost() +			   
+			   "\nSystem Cost:\t\t\t" + this.getSystemCost() +
+			   "\nAnnual tariff increase:\t\t" + this.getAnnualTariffIncrease() +
+			   "\nInvestment Return Rate:\t\t" + this.getInvestmentReturnRate() +
 			   "\n";		
 	}
 }

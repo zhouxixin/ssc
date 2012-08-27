@@ -51,7 +51,7 @@ public class BankOfPanels {
 		
 	}
 	
-	private boolean isValidPercentage (Double input) {
+	static boolean isValidPercentage (Double input) {
 		if (input >= 0.0 && input <= 1.0)		
 			return true;
 		else
@@ -119,7 +119,7 @@ public class BankOfPanels {
 			   "\nEfficiency Loss (west roof):\t" + this.efficiencyLossWestRoof +
 			   "\nPanel Efficiency:\t\t" + this.panelEfficiency +
 			   "\nPanel Age Efficiency Loss:\t" + this.getPanelAgeEfficiencyLoss() +
-			   "\nPanel Lifespan:\t\t" + this.getPanelLifespan() +
+			   "\nPanel Lifespan:\t\t\t" + this.getPanelLifespan() +
 			   "\n";		
 	}
 	

@@ -36,7 +36,9 @@ function formValidation() {
 			!isValidDecimal(dataInputForm.feedInFee) ||
 			!isValidDecimal(dataInputForm.systemCost) ||
 			!isValidDecimal(dataInputForm.panelAgeEfficiencyLoss) ||
-			!isValidDecimal(dataInputForm.panelLifespan)) {
+			!isValidDecimal(dataInputForm.panelLifespan) ||
+			!isValidDecimal(dataInputForm.annualTariffIncrease) ||
+			!isValidDecimal(dataInputForm.investmentReturnRate)) {
 		//alert("hey wait");		
 		return false;		
 	} else {

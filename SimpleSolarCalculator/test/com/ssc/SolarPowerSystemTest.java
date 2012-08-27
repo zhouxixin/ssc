@@ -36,6 +36,8 @@ public class SolarPowerSystemTest {
         sps.setSystemCost(18000.0);
         sps.setPanelAgeEfficiencyLoss(0.007);
         sps.setPanelLifespan(25);
+        sps.setAnnualTariffIncrease(0.05);
+        sps.setInvestmentReturnRate(0.05);
 	}
 
 	
