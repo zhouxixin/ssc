@@ -33,7 +33,9 @@ public class SolarPowerSystemTest {
         sps.setDayTimeHourlyUsage(1.0);
         sps.setElectricityRate(0.1941);
         sps.setFeedInFee(0.50);
-        sps.setSystemCost(18000.0);        
+        sps.setSystemCost(18000.0);
+        sps.setPanelAgeEfficiencyLoss(0.007);
+        sps.setPanelLifespan(25);
 	}
 
 	

@@ -11,6 +11,8 @@ public class BankOfPanels {
 	private Double panelEfficiency;				 	  // percentage in decimal form
 	private Double panelAgeEfficiencyLoss;		      // percentage in decimal form
 	
+	private Integer panelLifespan;
+	
 	private Double[] percentagesOnOrientations;       // percentages in decimal form
 	private final Integer NUMBER_OF_ORIENTATIONS = 2; // number of orientations 
 	private final Integer NORTH = 0;			      // constant for index of north
@@ -34,7 +36,7 @@ public class BankOfPanels {
 												"should be valid percentage.");
 		} else if ((north + west) != 1) {
 			throw new SolarPowerSystemException("The sum of the percentages " +
-												"on both orientations should be 1");
+												"on both orientations should be 1.");
 		} else {
 			this.percentagesOnOrientations = new Double[NUMBER_OF_ORIENTATIONS];
 			this.percentagesOnOrientations[NORTH] = north;
@@ -98,6 +100,15 @@ public class BankOfPanels {
 		}
 	}
 	
+	public void setPanelLifespan(Integer input) throws SolarPowerSystemException {
+		if (input < 1) {
+			throw new SolarPowerSystemException("Panel lifespan " +
+												"should be euqal or greater than 1.");
+		} else {
+			this.panelLifespan = input;
+		}
+	}
+	
 	@Override
 	public String toString() {		
 		return "\n< Bank of Panels >" +
@@ -107,6 +118,8 @@ public class BankOfPanels {
 			   "\nEfficiency Loss (North roof):\t" + this.efficiencyLossNorthRoof +
 			   "\nEfficiency Loss (west roof):\t" + this.efficiencyLossWestRoof +
 			   "\nPanel Efficiency:\t\t" + this.panelEfficiency +
+			   "\nPanel Age Efficiency Loss:\t" + this.getPanelAgeEfficiencyLoss() +
+			   "\nPanel Lifespan:\t\t" + this.getPanelLifespan() +
 			   "\n";		
 	}
 	
@@ -115,5 +128,28 @@ public class BankOfPanels {
 				(this.percentagesOnOrientations[NORTH] * (1 - this.efficiencyLossNorthRoof) +
 				 this.percentagesOnOrientations[WEST] * (1 - this.efficiencyLossWestRoof));		
 	}
+	
+	public Double getOutPut(Integer year) {
+		return this.getOutput() * this.getPanelEfficiency(year) / this.getPanelEfficiency();
+	}
+	
+	public Double getPanelEfficiency() {
+		return this.panelEfficiency;
+	}
+	
+	public Integer getPanelLifespan() {
+		return this.panelLifespan;
+	}
+	
+	public Double getPanelAgeEfficiencyLoss() {
+		return this.panelAgeEfficiencyLoss;
+	}
+	
+	public Double getPanelEfficiency(Integer year) {
+		return this.getPanelEfficiency() - 
+				this.getPanelAgeEfficiencyLoss() * (year - 1);		
+	}
+	
+
 	
 }

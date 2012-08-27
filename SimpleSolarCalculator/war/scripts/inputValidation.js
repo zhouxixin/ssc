@@ -34,7 +34,9 @@ function formValidation() {
 			!isValidDecimal(dataInputForm.dayTimeHourlyUsage) ||
 			!isValidDecimal(dataInputForm.electricityRate) ||
 			!isValidDecimal(dataInputForm.feedInFee) ||
-			!isValidDecimal(dataInputForm.systemCost)) {
+			!isValidDecimal(dataInputForm.systemCost) ||
+			!isValidDecimal(dataInputForm.panelAgeEfficiencyLoss) ||
+			!isValidDecimal(dataInputForm.panelLifespan)) {
 		//alert("hey wait");		
 		return false;		
 	} else {

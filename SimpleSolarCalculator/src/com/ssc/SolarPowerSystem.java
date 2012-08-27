@@ -14,8 +14,7 @@ public class SolarPowerSystem {
 	/** 
 	 * Format for output
 	 */
-	private final String DecFormat ="#.##";
-	//sb.append(new DecimalFormat(NGramContainer.DecFormat).format(this.probabilities[index]));
+	private final String DecFormat ="#.##";	
 	
 	public SolarPowerSystem() {
 		this.banksOfPanles = new BankOfPanels[DEFAULT_NUMBER_OF_BANKS];
@@ -72,6 +71,14 @@ public class SolarPowerSystem {
 		this.otherDetials.setSystemCost(input);			
 	}
 	
+	public void setPanelAgeEfficiencyLoss(Double input) throws SolarPowerSystemException {
+		this.banksOfPanles[DEFAULT_BANK_INDEX].setPanelAgeEfficiencyLoss(input);
+	}
+	
+	public void setPanelLifespan(Integer input) throws SolarPowerSystemException {
+		this.banksOfPanles[DEFAULT_BANK_INDEX].setPanelLifespan(input);
+	}
+	
 	public String toString() {		
 		return "\n< Solar Power System >" +
 			   this.banksOfPanles[DEFAULT_BANK_INDEX].toString() +
@@ -89,6 +96,7 @@ public class SolarPowerSystem {
 			   convertIntoFormat(this.getAnnualSolarGeneration()) + " kWh" +
 			   "\nAnnual Savings:\t\t\t" +
 			   convertIntoFormat(this.getAnnualSavings()) + " AUD" +
+			   "\n\n< Future Annual Solar Generation >" + this.getFutureOutput() +
 			   "\n";		
 	}
 	
@@ -122,7 +130,30 @@ public class SolarPowerSystem {
 		return this.getAverageDailySolarGeneration() * 365;
 	}
 	
+	public Double getAnnualSolarGeneration(Integer year) {
+		return this.getAverageDailySolarGeneration() * 365 * 
+				this.banksOfPanles[DEFAULT_BANK_INDEX].getPanelEfficiency(year) /
+				this.banksOfPanles[DEFAULT_BANK_INDEX].getPanelEfficiency();
+	}
+	
 	public Double getAnnualSavings() {
 		return this.getDailySavings() * 365;
+	}	
+	
+	
+	public String getFutureOutput() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("\n");
+		for (int year = 1; year <= this.banksOfPanles[DEFAULT_BANK_INDEX].getPanelLifespan(); year++) {
+			sb.append("year ");
+			sb.append(year);
+			sb.append(" - ");
+			sb.append(this.getAnnualSolarGeneration(year).toString().substring(0, 7));			
+			sb.append(" kW\n");
+		}
+		
+		
+		
+		return sb.toString();
 	}
 }

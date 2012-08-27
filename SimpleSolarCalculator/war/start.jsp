@@ -49,6 +49,13 @@
        		<td>Efficiency Loss (West Roof) (%)</td>
         	<td><input type="text" name="efficiencyLossWestRoof" value="0.15"></td>        
       	</tr>
+      	
+      	<tr>
+        	<td>Panel Age Efficiency Loss (%)</td>
+        	<td><input type="text" name="panelAgeEfficiencyLoss" value="0.007"></td>
+       		<td>Panel Lifespan (YEARS)</td>
+        	<td><input type="text" name="panelLifespan" value="25"></td>        
+      	</tr>
       
       	<tr>
 			<th colspan="4">Other Details</th>

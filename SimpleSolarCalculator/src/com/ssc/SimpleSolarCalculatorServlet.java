@@ -28,7 +28,8 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
         sps.setElectricityRate(Double.parseDouble(request.getParameter("electricityRate")));
         sps.setFeedInFee(Double.parseDouble(request.getParameter("feedInFee")));
         sps.setSystemCost(Double.parseDouble(request.getParameter("systemCost")));
-			
+		sps.setPanelAgeEfficiencyLoss(Double.parseDouble(request.getParameter("panelAgeEfficiencyLoss")));	
+		sps.setPanelLifespan(Integer.parseInt(request.getParameter("panelLifespan")));
 			
 			//sps = new SolarPowerSystem();
 			//sps.setSystemSize(Double.parseDouble(request.getParameter("systemSize")));
