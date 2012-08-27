@@ -8,7 +8,7 @@ body {
 
 /*Sets the content area*/
 div.contentArea {
-	width: 400px;	
+	width: 1000px;	
 	text-align: center;
 	margin: auto;
 	margin-top: 50px
@@ -19,27 +19,62 @@ div.buttonArea {
 	text-align: center;
 	margin: auto;
 	margin-top: 10px;
+	clear: both;
 }
 
 input:focus, input:hover {
-	border: thin solid #007b43;
+	border: thin solid #007b43;	
 }
 
 input {
-border: thin dotted #007b43;
+	border: thin dotted #007b43;
+	color: #007b43;
+	width: 80px;
 }
 
-table {
-	BORDER=1 ;CELLPADDING=3 ;CELLSPACING=1; 
-    RULES=ROWS; FRAME=HSIDES;
+table { 
+	border-collapse: collapse;
+	margin: auto; 
+	text-align: left;
+}
+
+table td, th { 
+	border-bottom: thin dotted #007b43;
+	padding: 5px; 
+	}
+
+table caption { 
+	color: #E6B422;	
+	margin: 20px; 
+    font-size: 14pt;
 }
 
 div.header, div.footer{
 	margin: auto;
-	min-width: 800px;
+	min-width: 1000px;
+	min-height: 50px;
+    height: auto;
+    height: 20px; 
 	background: #007b43;
 	text-align: center;
 	clear: both;
 }
-/*常磐色 ときわいろ
-#007b43*/
+
+input.button {
+	width: 330px;		
+}
+
+#getResults {
+	color: #E6B422;
+	font-weight: bold;	
+}
+
+#getResults:hover {
+	color: #007b43;
+}
+/*
+常磐色 
+#007b43
+
+
+*/

@@ -18,74 +18,75 @@
   	<h1>Simple Solar Calculator</h1>
     
 	<form name="dataInputForm" class="dataInputForm" action="simplesolarcalculator" method="post" onsubmit="return formValidation()">
-		<table>
+		
+		<p>v0.01</p>
+		<table class="dataTable">
 	
-		<caption>Please enter your installation details (new JSP)</caption>
-		<p>new line to test sync</p>
+		<caption>Please enter details of your system</caption>
+		
+		
 		<tr>
-        	<td>System Size (KW)</td>
-        	<td><input type="text" name="systemSize" value="4.95"></td>        
-        </tr>
+			<th colspan="4">About the Panel</th>
+		</tr>
+		
+		<tr>			
+        	<td>System Size (kW)</td>
+        	<td><input type="text" name="systemSize" value=""></td>
+        	<td>Panel Efficiency (%)</td>
+        	<td><input type="text" name="panelEfficiency" value="1.0"></td>        
+      	</tr>
       
         <tr>
-        	<td>Percentage on North Roof</td>
-        	<td><input type="text" name="percentageOnNorthRoof" value="0.381"></td>        
-        </tr>
-      
-        <tr>
-        	<td>Percentage on West Roof</td>
+        	<td>Percentage on North Roof (%)</td>
+        	<td><input type="text" name="percentageOnNorthRoof" value="0.381"></td>
+        	<td>Percentage on West Roof (%)</td>
         	<td><input type="text" name="percentageOnWestRoof" value="0.619"></td>        
         </tr>
       
       	<tr>
-        	<td>Efficiency Loss (North Roof)</td>
-        	<td><input type="text" name="efficiencyLossNorthRoof" value="0.05"></td>        
-      	</tr>
-      
-      	<tr>
-       		<td>Efficiency Loss (West Roof)</td>
+        	<td>Efficiency Loss (North Roof) (%)</td>
+        	<td><input type="text" name="efficiencyLossNorthRoof" value="0.05"></td>
+       		<td>Efficiency Loss (West Roof) (%)</td>
         	<td><input type="text" name="efficiencyLossWestRoof" value="0.15"></td>        
       	</tr>
       
       	<tr>
-        	<td>Panel Efficiency</td>
-        	<td><input type="text" name="panelEfficiency" value="1.0"></td>        
+			<th colspan="4">Other Details</th>
+		</tr>
+      
+      	<tr>
+        	<td>Inverter Efficiency (%)</td>
+        	<td><input type="text" name="inverterEfficiency" value="0.96"></td>
+        	<td></td>
+        	<td></td>         
       	</tr>
       
       	<tr>
-        	<td>Inverter Efficiency</td>
-        	<td><input type="text" name="inverterEfficiency" value="0.96"></td>        
-      	</tr>
-      
-      	<tr>
-        	<td>Average Daily Hours of Sunlight</td>
-        	<td><input type="text" name="averageDailyHoursOfSunlight" value="4.5"></td>        
-      	</tr>
-      	
-      	<tr>
-        	<td>DayTimeHourlyUsage</td>
+        	<td>Average Daily Hours of Sunlight (H)</td>
+        	<td><input type="text" name="averageDailyHoursOfSunlight" value="4.5"></td>
+        	<td>DayTimeHourlyUsage (kW)</td>
         	<td><input type="text" name="dayTimeHourlyUsage" value="1"></td>        
       	</tr> 
       	
       	<tr>
-        	<td>ElectricityRatet</td>
-        	<td><input type="text" name="electricityRatet" value="0.1941"></td>        
-      	</tr>  
-      	
-      	<tr>
-        	<td>FeedInFee</td>
+        	<td>Electricity Rate (AUD)</td>
+        	<td><input type="text" name="electricityRate" value="0.19"></td>
+        	<td>Feed In Fee (AUD)</td>
         	<td><input type="text" name="feedInFee" value="0.50"></td>        
       	</tr>  
       	
       	<tr>
-        	<td>SystemCost</td>
-        	<td><input type="text" name="systemCost" value="18000"></td>        
+        	<td>System Cost (AUD)</td>
+        	<td><input type="text" name="systemCost" value="18000"></td>
+        	<td></td>
+        	<td></td>        
       	</tr>  
       	
-    	</table>
+    	</table>    	
+    	
     	
     	<div class="buttonArea">
-    		<input type="reset" value="Clear Table"><input type="submit" value="Get Results">
+    		<input class="button" type="reset" value="Clear Table"><input class="button" id="getResults" type="submit" value="Get Results">
     	</div>	
 
 	</form>
