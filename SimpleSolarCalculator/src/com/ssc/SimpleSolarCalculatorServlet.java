@@ -21,7 +21,7 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 		sps.setEfficiencyLossWestRoof(Double.parseDouble(request.getParameter("efficiencyLossWestRoof")));		
 		sps.setPercentagesOnOrientations(Double.parseDouble(request.getParameter("percentageOnWestRoof")),
 										 Double.parseDouble(request.getParameter("percentageOnNorthRoof")));
-		sps.setPanelEfficiency(Double.parseDouble(request.getParameter("panelEfficiency")));
+		sps.setPanelEfficiency(persentageToDecimalForm(Double.parseDouble(request.getParameter("panelEfficiency"))));
 		sps.setSystemSize(Double.parseDouble(request.getParameter("systemSize")));
 		sps.setInverterEfficiency(Double.parseDouble(request.getParameter("inverterEfficiency")));
 		sps.setDayTimeHourlyUsage(Double.parseDouble(request.getParameter("dayTimeHourlyUsage")));
@@ -93,5 +93,8 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 		this.doGet(request, response);
 	}
 	
+	private Double persentageToDecimalForm(Double input) {
+		return input/100.0;
+	}
 	
 }

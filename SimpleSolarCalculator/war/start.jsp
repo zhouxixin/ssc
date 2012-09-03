@@ -36,7 +36,7 @@
         	<td>System Size (kW)</td>
         	<td><input type="text" class="dataInput" name="systemSize" value=""></td>
         	<td>Panel Efficiency (%)</td>
-        	<td><input type="text" class="dataInput" name="panelEfficiency" value="1.0"></td>        
+        	<td><input type="text" class="dataInput" name="panelEfficiency" value="100"></td>        
       	</tr>
       
         <tr>

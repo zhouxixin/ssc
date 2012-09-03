@@ -68,7 +68,9 @@ function formValidation() {
 	var numberOfErrors = 0;
 	
 	if (!isValidDecimal(dataInputForm.systemSize)) numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.panelEfficiency))	numberOfErrors += 1;	
+	if (!isValidPercentage(dataInputForm.panelEfficiency)) numberOfErrors += 1;
+	
+	//if (!isValidDecimal(dataInputForm.panelEfficiency))	numberOfErrors += 1;	
 	if (!isValidDecimal(dataInputForm.percentageOnNorthRoof)) numberOfErrors += 1;
 	if (!isValidDecimal(dataInputForm.percentageOnWestRoof)) numberOfErrors += 1;
 	if (!isValidDecimal(dataInputForm.efficiencyLossNorthRoof))	numberOfErrors += 1;
@@ -123,6 +125,18 @@ function isValidDecimal(fieldName) {
 	}	
 }
 
+function isValidPercentage(fieldName) {
+	if (isValidDecimal(fieldName) && fieldName.value <= 100.0) {
+		fieldName.style.border = "thin dotted #007b43";
+		return true;
+	} else {
+		fieldName.style.border = "thin solid #E2041B";
+		document.getElementById("info").innerHTML = "Please check for errors";
+		document.getElementById("info").style.color = "#E2041B";
+		return false;
+	}
+}
+
 function resetTable() {
 	var list = document.getElementsByClassName("dataInput");
 	
@@ -130,7 +144,7 @@ function resetTable() {
 	document.getElementById("info").style.color = "#E6B422";
 	
 	for (var i = 0; i < list.length; i++) {
-	    list[i].value = "";
+	    //list[i].value = "";
 	    list[i].style.border = "thin dotted #007b43";
 	}
 }
