@@ -17,21 +17,21 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 		try {
 		
 		sps.setAverageDailyHoursOfSunlight(Double.parseDouble(request.getParameter("averageDailyHoursOfSunlight")));
-		sps.setEfficiencyLossNorthRoof(Double.parseDouble(request.getParameter("efficiencyLossNorthRoof")));
-		sps.setEfficiencyLossWestRoof(Double.parseDouble(request.getParameter("efficiencyLossWestRoof")));		
-		sps.setPercentagesOnOrientations(Double.parseDouble(request.getParameter("percentageOnWestRoof")),
-										 Double.parseDouble(request.getParameter("percentageOnNorthRoof")));
+		sps.setEfficiencyLossNorthRoof(persentageToDecimalForm(Double.parseDouble(request.getParameter("efficiencyLossNorthRoof"))));
+		sps.setEfficiencyLossWestRoof(persentageToDecimalForm(Double.parseDouble(request.getParameter("efficiencyLossWestRoof"))));		
+		sps.setPercentagesOnOrientations(persentageToDecimalForm(Double.parseDouble(request.getParameter("percentageOnWestRoof"))),
+				persentageToDecimalForm(Double.parseDouble(request.getParameter("percentageOnNorthRoof"))));
 		sps.setPanelEfficiency(persentageToDecimalForm(Double.parseDouble(request.getParameter("panelEfficiency"))));
 		sps.setSystemSize(Double.parseDouble(request.getParameter("systemSize")));
-		sps.setInverterEfficiency(Double.parseDouble(request.getParameter("inverterEfficiency")));
+		sps.setInverterEfficiency(persentageToDecimalForm(Double.parseDouble(request.getParameter("inverterEfficiency"))));
 		sps.setDayTimeHourlyUsage(Double.parseDouble(request.getParameter("dayTimeHourlyUsage")));
         sps.setElectricityRate(Double.parseDouble(request.getParameter("electricityRate")));
         sps.setFeedInFee(Double.parseDouble(request.getParameter("feedInFee")));
         sps.setSystemCost(Double.parseDouble(request.getParameter("systemCost")));
-		sps.setPanelAgeEfficiencyLoss(Double.parseDouble(request.getParameter("panelAgeEfficiencyLoss")));	
+		sps.setPanelAgeEfficiencyLoss(persentageToDecimalForm(Double.parseDouble(request.getParameter("panelAgeEfficiencyLoss"))));	
 		sps.setPanelLifespan(Integer.parseInt(request.getParameter("panelLifespan")));
-		sps.setAnnualTariffIncrease(Double.parseDouble(request.getParameter("annualTariffIncrease")));
-		sps.setInvestmentReturnRate(Double.parseDouble(request.getParameter("investmentReturnRate")));
+		sps.setAnnualTariffIncrease(persentageToDecimalForm(Double.parseDouble(request.getParameter("annualTariffIncrease"))));
+		sps.setInvestmentReturnRate(persentageToDecimalForm(Double.parseDouble(request.getParameter("investmentReturnRate"))));
 			//sps = new SolarPowerSystem();
 			//sps.setSystemSize(Double.parseDouble(request.getParameter("systemSize")));
 	        //sps.setPercentagesOnOrientations(0.381, 0.619);

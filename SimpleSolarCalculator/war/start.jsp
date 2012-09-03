@@ -19,7 +19,7 @@
     
 	<form name="dataInputForm" class="dataInputForm" action="simplesolarcalculator" method="post" onsubmit="return formValidation()">
 		
-		<p>v0.01</p>
+		
 		<div id="info">Please enter details of your system</div>
 		<table class="dataTable">
 		<!--
@@ -41,21 +41,21 @@
       
         <tr>
         	<td>Percentage on North Roof (%)</td>
-        	<td><input type="text" class="dataInput" name="percentageOnNorthRoof" value="0.381"></td>
+        	<td><input type="text" class="dataInput" name="percentageOnNorthRoof" value="38"></td>
         	<td>Percentage on West Roof (%)</td>
-        	<td><input type="text" class="dataInput" name="percentageOnWestRoof" value="0.619"></td>        
+        	<td><input type="text" class="dataInput" name="percentageOnWestRoof" value="62"></td>        
         </tr>
       
       	<tr>
         	<td>Efficiency Loss (North Roof) (%)</td>
-        	<td><input type="text" class="dataInput" name="efficiencyLossNorthRoof" value="0.05"></td>
+        	<td><input type="text" class="dataInput" name="efficiencyLossNorthRoof" value="5"></td>
        		<td>Efficiency Loss (West Roof) (%)</td>
-        	<td><input type="text" class="dataInput" name="efficiencyLossWestRoof" value="0.15"></td>        
+        	<td><input type="text" class="dataInput" name="efficiencyLossWestRoof" value="15"></td>        
       	</tr>
       	
       	<tr>
         	<td>Panel Age Efficiency Loss (%)</td>
-        	<td><input type="text" class="dataInput" name="panelAgeEfficiencyLoss" value="0.007"></td>
+        	<td><input type="text" class="dataInput" name="panelAgeEfficiencyLoss" value="0.7"></td>
        		<td>Panel Lifespan (YEARS)</td>
         	<td><input type="text" class="dataInput" name="panelLifespan" value="25"></td>        
       	</tr>
@@ -66,7 +66,7 @@
       
       	<tr>
         	<td>Inverter Efficiency (%)</td>
-        	<td><input type="text" class="dataInput" name="inverterEfficiency" value="0.96"></td>
+        	<td><input type="text" class="dataInput" name="inverterEfficiency" value="96"></td>
         	<td></td>
         	<td></td>         
       	</tr>
@@ -94,9 +94,9 @@
       	
       	<tr>
         	<td>Annual Tariff Increase (%)</td>
-        	<td><input type="text" class="dataInput" name="annualTariffIncrease" value="0.05"></td>
+        	<td><input type="text" class="dataInput" name="annualTariffIncrease" value="5"></td>
         	<td>Investment Return Rate (%)</td>
-        	<td><input type="text" class="dataInput" name="investmentReturnRate" value="0.05"></td>        
+        	<td><input type="text" class="dataInput" name="investmentReturnRate" value="5"></td>        
       	</tr>   
       	
     	</table>    	

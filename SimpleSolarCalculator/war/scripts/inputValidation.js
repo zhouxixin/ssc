@@ -71,20 +71,20 @@ function formValidation() {
 	if (!isValidPercentage(dataInputForm.panelEfficiency)) numberOfErrors += 1;
 	
 	//if (!isValidDecimal(dataInputForm.panelEfficiency))	numberOfErrors += 1;	
-	if (!isValidDecimal(dataInputForm.percentageOnNorthRoof)) numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.percentageOnWestRoof)) numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.efficiencyLossNorthRoof))	numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.efficiencyLossWestRoof)) numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.inverterEfficiency)) numberOfErrors += 1;
+	if (!isValidPercentage(dataInputForm.percentageOnNorthRoof)) numberOfErrors += 1;
+	if (!isValidPercentage(dataInputForm.percentageOnWestRoof)) numberOfErrors += 1;
+	if (!isValidPercentage(dataInputForm.efficiencyLossNorthRoof))	numberOfErrors += 1;
+	if (!isValidPercentage(dataInputForm.efficiencyLossWestRoof)) numberOfErrors += 1;
+	if (!isValidPercentage(dataInputForm.inverterEfficiency)) numberOfErrors += 1;
 	if (!isValidDecimal(dataInputForm.averageDailyHoursOfSunlight))	numberOfErrors += 1;
 	if (!isValidDecimal(dataInputForm.dayTimeHourlyUsage)) numberOfErrors += 1;
 	if (!isValidDecimal(dataInputForm.electricityRate))	numberOfErrors += 1;
 	if (!isValidDecimal(dataInputForm.feedInFee)) numberOfErrors += 1;
 	if (!isValidDecimal(dataInputForm.systemCost)) numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.panelAgeEfficiencyLoss)) numberOfErrors += 1;
+	if (!isValidPercentage(dataInputForm.panelAgeEfficiencyLoss)) numberOfErrors += 1;
 	if (!isValidDecimal(dataInputForm.panelLifespan)) numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.annualTariffIncrease)) numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.investmentReturnRate)) numberOfErrors += 1;
+	if (!isValidPercentage(dataInputForm.annualTariffIncrease)) numberOfErrors += 1;
+	if (!isValidPercentage(dataInputForm.investmentReturnRate)) numberOfErrors += 1;
 		
 	return (numberOfErrors == 0);	
 }
