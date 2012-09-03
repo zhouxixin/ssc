@@ -1,4 +1,6 @@
-function formValidation() {
+//var numberOfErrors;
+
+function formValidationOld() {
 	
 	/*
 	var allGood = true;
@@ -61,52 +63,28 @@ function formValidation() {
 
 function testReturn() { return false; }
 
-function formValidation2() {
+function formValidation() {
 	
 	var numberOfErrors = 0;
 	
-	if (!isValidDecimal(dataInputForm.systemSize)) {
-		numberOfErrors += 1;
-	}
+	if (!isValidDecimal(dataInputForm.systemSize)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.panelEfficiency))	numberOfErrors += 1;	
+	if (!isValidDecimal(dataInputForm.percentageOnNorthRoof)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.percentageOnWestRoof)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.efficiencyLossNorthRoof))	numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.efficiencyLossWestRoof)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.inverterEfficiency)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.averageDailyHoursOfSunlight))	numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.dayTimeHourlyUsage)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.electricityRate))	numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.feedInFee)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.systemCost)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.panelAgeEfficiencyLoss)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.panelLifespan)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.annualTariffIncrease)) numberOfErrors += 1;
+	if (!isValidDecimal(dataInputForm.investmentReturnRate)) numberOfErrors += 1;
 		
-	if (!isValidDecimal(dataInputForm.panelEfficiency)) {
-		numberOfErrors += 1;
-	}
-	
-	/*
-	if (!isValidDecimal(dataInputForm.percentageOnNorthRoof))
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.percentageOnWestRoof))
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.efficiencyLossNorthRoof))	
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.efficiencyLossWestRoof))
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.inverterEfficiency))	
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.averageDailyHoursOfSunlight))	
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.dayTimeHourlyUsage))	
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.electricityRate))	
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.feedInFee))
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.systemCost))	
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.panelAgeEfficiencyLoss))
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.panelLifespan))
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.annualTariffIncrease))
-		numberOfErrors += 1;
-	if (!isValidDecimal(dataInputForm.investmentReturnRate))
-		numberOfErrors += 1;
-	*/	
-	
-	return false;
-	
-	
+	return (numberOfErrors == 0);	
 }
 
 function isMissing(fieldName) {	
