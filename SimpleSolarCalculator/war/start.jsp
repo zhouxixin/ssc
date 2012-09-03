@@ -20,9 +20,12 @@
 	<form name="dataInputForm" class="dataInputForm" action="simplesolarcalculator" method="post" onsubmit="return formValidation()">
 		
 		<p>v0.01</p>
+		<div id="info">Please enter details of your system</div>
 		<table class="dataTable">
-	
+		<!--
 		<caption>Please enter details of your system</caption>
+		  -->
+		
 		
 		
 		<tr>
@@ -31,30 +34,30 @@
 		
 		<tr>			
         	<td>System Size (kW)</td>
-        	<td><input type="text" name="systemSize" value=""></td>
+        	<td><input type="text" class="dataInput" name="systemSize" value=""></td>
         	<td>Panel Efficiency (%)</td>
-        	<td><input type="text" name="panelEfficiency" value="1.0"></td>        
+        	<td><input type="text" class="dataInput" name="panelEfficiency" value="1.0"></td>        
       	</tr>
       
         <tr>
         	<td>Percentage on North Roof (%)</td>
-        	<td><input type="text" name="percentageOnNorthRoof" value="0.381"></td>
+        	<td><input type="text" class="dataInput" name="percentageOnNorthRoof" value="0.381"></td>
         	<td>Percentage on West Roof (%)</td>
-        	<td><input type="text" name="percentageOnWestRoof" value="0.619"></td>        
+        	<td><input type="text" class="dataInput" name="percentageOnWestRoof" value="0.619"></td>        
         </tr>
       
       	<tr>
         	<td>Efficiency Loss (North Roof) (%)</td>
-        	<td><input type="text" name="efficiencyLossNorthRoof" value="0.05"></td>
+        	<td><input type="text" class="dataInput" name="efficiencyLossNorthRoof" value="0.05"></td>
        		<td>Efficiency Loss (West Roof) (%)</td>
-        	<td><input type="text" name="efficiencyLossWestRoof" value="0.15"></td>        
+        	<td><input type="text" class="dataInput" name="efficiencyLossWestRoof" value="0.15"></td>        
       	</tr>
       	
       	<tr>
         	<td>Panel Age Efficiency Loss (%)</td>
-        	<td><input type="text" name="panelAgeEfficiencyLoss" value="0.007"></td>
+        	<td><input type="text" class="dataInput" name="panelAgeEfficiencyLoss" value="0.007"></td>
        		<td>Panel Lifespan (YEARS)</td>
-        	<td><input type="text" name="panelLifespan" value="25"></td>        
+        	<td><input type="text" class="dataInput" name="panelLifespan" value="25"></td>        
       	</tr>
       
       	<tr>
@@ -63,44 +66,44 @@
       
       	<tr>
         	<td>Inverter Efficiency (%)</td>
-        	<td><input type="text" name="inverterEfficiency" value="0.96"></td>
+        	<td><input type="text" class="dataInput" name="inverterEfficiency" value="0.96"></td>
         	<td></td>
         	<td></td>         
       	</tr>
       
       	<tr>
         	<td>Average Daily Hours of Sunlight (H)</td>
-        	<td><input type="text" name="averageDailyHoursOfSunlight" value="4.5"></td>
+        	<td><input type="text" class="dataInput" name="averageDailyHoursOfSunlight" value="4.5"></td>
         	<td>DayTimeHourlyUsage (kW)</td>
-        	<td><input type="text" name="dayTimeHourlyUsage" value="1"></td>        
+        	<td><input type="text" class="dataInput" name="dayTimeHourlyUsage" value="1"></td>        
       	</tr> 
       	
       	<tr>
         	<td>Electricity Rate (AUD)</td>
-        	<td><input type="text" name="electricityRate" value="0.19"></td>
+        	<td><input type="text" class="dataInput" name="electricityRate" value="0.19"></td>
         	<td>Feed In Fee (AUD)</td>
-        	<td><input type="text" name="feedInFee" value="0.50"></td>        
+        	<td><input type="text" class="dataInput" name="feedInFee" value="0.50"></td>        
       	</tr>  
       	
       	<tr>
         	<td>System Cost (AUD)</td>
-        	<td><input type="text" name="systemCost" value="18000"></td>
+        	<td><input type="text" class="dataInput" name="systemCost" value="18000"></td>
         	<td></td>
         	<td></td>        
       	</tr>
       	
       	<tr>
         	<td>Annual Tariff Increase (%)</td>
-        	<td><input type="text" name="annualTariffIncrease" value="0.05"></td>
+        	<td><input type="text" class="dataInput" name="annualTariffIncrease" value="0.05"></td>
         	<td>Investment Return Rate (%)</td>
-        	<td><input type="text" name="investmentReturnRate" value="0.05"></td>        
+        	<td><input type="text" class="dataInput" name="investmentReturnRate" value="0.05"></td>        
       	</tr>   
       	
     	</table>    	
     	
     	
     	<div class="buttonArea">
-    		<input class="button" type="reset" value="Clear Table"><input class="button" id="getResults" type="submit" value="Get Results">
+    		<input class="button" type="reset" value="Clear Table" onclick="resetTable()"><input class="button" id="getResults" type="submit" value="Get Results">
     	</div>	
 
 	</form>

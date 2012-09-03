@@ -117,8 +117,22 @@ function isValidDecimal(fieldName) {
 		return true;
 	} else {
 		fieldName.style.border = "thin solid #E2041B";
+		document.getElementById("info").innerHTML = "Please check for errors";
+		document.getElementById("info").style.color = "#E2041B";
 		return false;
 	}	
+}
+
+function resetTable() {
+	var list = document.getElementsByClassName("dataInput");
+	
+	document.getElementById("info").innerHTML = "Please enter details of your system";
+	document.getElementById("info").style.color = "#E6B422";
+	
+	for (var i = 0; i < list.length; i++) {
+	    list[i].value = "";
+	    list[i].style.border = "thin dotted #007b43";
+	}
 }
 
 /*
