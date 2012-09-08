@@ -4,6 +4,7 @@
 <html>
 <head>
 <link href = "./styles/style.css" rel = "stylesheet" type = "text/css"/>
+<script type="text/javascript" src = "./scripts/display.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Result Page</title>
 </head>
@@ -19,8 +20,16 @@
   	<div align="left">
   	<pre><code>
   	<% out.print(request.getAttribute("show").toString()); %>
-  	</code></pre>
+  	</code></pre>  	
   	</div>
+  	
+  	<div id="headerDiv">
+     <div id="titleText">Hide/Show Div Demo - Click here ==)</div><a id="myHeader" href="javascript:toggle2('myContent','myHeader');" >collapse</a>
+	</div>
+	<div style="clear:both;"></div>
+	<div id="contentDiv">
+     <div id="myContent" style="display: block;">This is the content that is dynamically being collapsed.</div>
+	</div>
 	
 	
 	

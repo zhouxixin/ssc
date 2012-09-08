@@ -118,7 +118,7 @@ function isPositive(fieldName) {
 
 function isValidDecimal(fieldName) {
 	if (!isMissing(fieldName) && isNumeric(fieldName) && isPositive(fieldName)) {
-		fieldName.style.border = "thin dotted #007b43";
+		fieldName.style.border = "thin solid #007b43";
 		return true;
 	} else {
 		fieldName.style.border = "thin solid #E2041B";
@@ -130,7 +130,7 @@ function isValidDecimal(fieldName) {
 
 function isValidPercentage(fieldName) {
 	if (isValidDecimal(fieldName) && fieldName.value <= 100.0) {
-		fieldName.style.border = "thin dotted #007b43";
+		fieldName.style.border = "thin solid #007b43";
 		return true;
 	} else {
 		fieldName.style.border = "thin solid #E2041B";

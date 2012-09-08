@@ -48,6 +48,9 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 		} catch (SolarPowerSystemException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (Exception e) {
+			String destination = "/start.jsp";
+			response.sendRedirect(response.encodeRedirectURL(destination));			
 		}
 		
 		
