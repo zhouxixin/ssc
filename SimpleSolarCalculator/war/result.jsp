@@ -16,12 +16,50 @@
 	</div>
 
 	<div class="contentArea">
+  	
   	<h1>Result</h1>
-  	<div align="left">
-  	<pre><code>
-  	<% out.print(request.getAttribute("show").toString()); %>
-  	</code></pre>  	
-  	</div>
+  	
+  	 
+  	
+  	 
+  	 
+  	<table class="resultTable">
+  	
+  		<tr>
+  			<th><a id="overviewTag" href="javascript:showDIV('overview','overviewTag');">Overview</a></th>
+  			<th><a id="electricityGenerationTag" href="javascript:showDIV('electricityGeneration','electricityGenerationTag');">Electricity Generation</a></th>
+  			<th><a id="savingsTag" href="javascript:showDIV('savings','savingsTag');">Savings</a></th>
+  			<th><a id="returnOnInvestmentTag" href="javascript:showDIV('returnOnInvestment','returnOnInvestmentTag');">Return on Investment</a></th>  			
+  		</tr>
+  		
+  		<tr>
+  			<td colspan="4"> 
+  			<div id="overview">OOO</div>
+  			<div id="electricityGeneration">EEE</div>
+  			<div id="savings">SSS</div>
+  			<div id="returnOnInvestment">RRR</div>
+  			
+  			</td>
+  		</tr>
+  	
+  	</table>
+  	
+  	<div id="hehe">hehe</div>
+  	
+  	<div id="gaga">gaga</div>
+  	
+  	<div><% out.print(request.getAttribute("show").toString()); %></div>
+  			
+  			 
+  			<div id="haha" align="left">
+  				<pre>
+  				<code>
+  				<% out.print(request.getAttribute("show").toString()); %>
+  				</code>
+  				</pre>  	
+  			</div>
+  	
+  	<div><a href="javascript:hideDIVs();">byebye</a></div>
   	
   	<div id="headerDiv">
      <div id="titleText">Hide/Show Div Demo - Click here ==)</div><a id="myHeader" href="javascript:toggle2('myContent','myHeader');" >collapse</a>

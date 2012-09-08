@@ -8,7 +8,8 @@ body {
 
 /*Sets the content area*/
 div.contentArea {
-	width: 1000px;	
+	min-width: 800px;
+	max-width: 800px;
 	text-align: center;
 	margin: auto;
 	margin-top: 50px
@@ -29,19 +30,28 @@ input:focus, input:hover {
 input {
 	border: thin dotted #007b43;
 	color: #007b43;
-	width: 80px;
+	width: 65px;
 }
 
-table { 
+table {
+	width: 800px;
 	border-collapse: collapse;
-	margin: auto; 
+	margin: auto; 		
+}
+
+table td, th {	
+	border-bottom: thin solid #007b43;
+	padding: 5px; 
 	text-align: left;
 }
 
-table td, th { 
-	border-bottom: thin dotted #007b43;
-	padding: 5px; 
-	}
+table th {	
+	color: #E6B422;
+}
+
+table.resultTable th {
+	text-align: center;
+}
 
 /*
 table caption { 
@@ -53,7 +63,7 @@ table caption {
 
 div.header, div.footer{
 	margin: auto;
-	min-width: 1000px;
+	min-width: 800px;
 	min-height: 50px;
     height: auto;
     height: 20px; 
@@ -62,8 +72,17 @@ div.header, div.footer{
 	clear: both;
 }
 
+a {
+	color: #007b43;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: overline;	
+}
+
 input.button {
-	width: 330px;		
+	width: 400px;		
 }
 
 #getResults {
@@ -79,6 +98,7 @@ input.button {
 	color: #E6B422;
 	font-size: 14pt;
 }
+
 
 
 /*

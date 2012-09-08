@@ -29,12 +29,12 @@
 		
 		
 		<tr>
-			<th colspan="4">About the Panel</th>
+			<th colspan="2">About the Panel</th><th colspan="2"></th>
 		</tr>
 		
 		<tr>			
         	<td>System Size (kW)</td>
-        	<td><input type="text" class="dataInput" name="systemSize" value=""></td>
+        	<td><input type="text" class="dataInput" name="systemSize" value="5"></td>
         	<td>Panel Efficiency (%)</td>
         	<td><input type="text" class="dataInput" name="panelEfficiency" value="100"></td>        
       	</tr>
@@ -61,7 +61,7 @@
       	</tr>
       
       	<tr>
-			<th colspan="4">Other Details</th>
+			<th colspan="2">Other Details</th><th colspan="2"></th>
 		</tr>
       
       	<tr>
