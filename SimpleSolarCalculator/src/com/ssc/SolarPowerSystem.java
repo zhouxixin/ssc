@@ -109,6 +109,13 @@ public class SolarPowerSystem {
 				this.otherDetials.getAverageDailyHoursOfSunlight();
 	}
 	
+	public Double getAverageDailySolarGeneration(Integer year) {
+		return this.inverter.getOutput(banksOfPanles[DEFAULT_BANK_INDEX]) * 
+				this.otherDetials.getAverageDailyHoursOfSunlight() * 
+				this.banksOfPanles[DEFAULT_BANK_INDEX].getPanelEfficiency(year) /
+				this.banksOfPanles[DEFAULT_BANK_INDEX].getPanelEfficiency();
+	}
+	
 	public Double getReplacementGeneration() {
 		return this.otherDetials.getDayTimeHourlyUsage() * 
 				this.otherDetials.getAverageDailyHoursOfSunlight();
@@ -131,9 +138,7 @@ public class SolarPowerSystem {
 	}
 	
 	public Double getAnnualSolarGeneration(Integer year) {
-		return this.getAverageDailySolarGeneration() * 365 * 
-				this.banksOfPanles[DEFAULT_BANK_INDEX].getPanelEfficiency(year) /
-				this.banksOfPanles[DEFAULT_BANK_INDEX].getPanelEfficiency();
+		return this.getAverageDailySolarGeneration(year) * 365;				
 	}
 	
 	public Double getAnnualSavings() {

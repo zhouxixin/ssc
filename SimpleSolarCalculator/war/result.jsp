@@ -83,7 +83,20 @@
   		
   		<tr>
   			<td colspan="4"> 
-  			<div id="overview">OOO</div>
+  			<div id="overview">OOO
+  				<table>
+  					<tr>
+  						<td>Average Daily Solar Generation</td>
+  						<td>12</td>
+  						<td>Average Daily Savings</td>
+  						<td>23</td>
+  					</tr>
+  					<tr></tr>
+  					<tr></tr>
+  					<tr></tr>
+  				</table>
+  			
+  			</div>
   			
   			<div id="electricityGeneration">
   			
@@ -94,11 +107,10 @@
   			
   			
   			<div id="savings">
-  			<div id="savingsChartDiv"></div>
+  				<div id="savingsChartDiv"></div>
+  			</div>
   			
-  			
-  			SSS</div>
-  			<div id="returnOnInvestment">RRR<% out.print(request.getAttribute("annulGeneration").toString());  %></div>
+  			<div id="returnOnInvestment"><% out.print(request.getAttribute("annulGeneration").toString());  %></div>
   			
   			</td>
   		</tr>
@@ -118,7 +130,9 @@
   			
 
 <form name="start over" action="/" method="post">
+	<div class="buttonArea">
 	<input class="button" type="submit" value="Start Over">
+	</div>
 </form>
   
 	</div>
