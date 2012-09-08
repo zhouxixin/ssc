@@ -16,20 +16,18 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
+      google.setOnLoadCallback(drawAnnualGenerationChart);
       google.setOnLoadCallback(drawSavingsChart);
       
-      function drawChart() {
+      function drawAnnualGenerationChart() {
         var data = google.visualization.arrayToDataTable([
-          ['year', 'Brisbane Average', 'Yours'],
-          ['1',  10,  20],
-          ['2',  13,  22],
-          <%= someOutput() %>
+          ['year', 'Annual Solar Generation (kWh)'],          
+          <% out.print(request.getAttribute("annulGeneration").toString());  %>
         ]);
 
         var options = {
-          title: 'Annual Solar Generation (KW):',
-          titleTextStyle: {color: '#007b43'},
+          title: 'Annual Solar Generation (kWh):',
+          titleTextStyle: {color: '#E6B422'},
           width:750, height:350,
           hAxis: {title: 'year', titleTextStyle: {color: '#007b43'}},          
           colors: ['#007b43','#E6B422','#E2041B']          
@@ -49,7 +47,7 @@
           var options = {
             title: 'Annual Savings (KW):',
             titleTextStyle: {color: '#007b43'},
-            width:750, height:350,
+            width:800, height:350,
             hAxis: {title: 'year', titleTextStyle: {color: '#007b43'}},          
             colors: ['#007b43','#E6B422','#E2041B']          
           };
@@ -100,20 +98,24 @@
   			
   			
   			SSS</div>
-  			<div id="returnOnInvestment">RRR</div>
+  			<div id="returnOnInvestment">RRR<% out.print(request.getAttribute("annulGeneration").toString());  %></div>
   			
   			</td>
   		</tr>
   	
   	</table>	
+<!--  
 
-  			<div id="haha" align="left">
+<div id="haha" align="left">
   				<pre>
   				<code>
   				<% out.print(request.getAttribute("show").toString()); %>
   				</code>
   				</pre>  	
   			</div>
+
+-->
+  			
 
 <form name="start over" action="/" method="post">
 	<input class="button" type="submit" value="Start Over">

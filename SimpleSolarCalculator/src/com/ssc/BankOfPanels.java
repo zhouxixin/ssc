@@ -118,8 +118,7 @@ public class BankOfPanels {
 			   "\nEfficiency Loss (North roof):\t" + this.efficiencyLossNorthRoof +
 			   "\nEfficiency Loss (west roof):\t" + this.efficiencyLossWestRoof +
 			   "\nPanel Efficiency:\t\t" + this.panelEfficiency +
-			   "\nPanel Age Efficiency Loss:\t" + this.getPanelAgeEfficiencyLoss() +
-			   "\nPanel Lifespan:\t\t\t" + this.getPanelLifespan() +
+			   "\nPanel Age Efficiency Loss:\t" + this.getPanelAgeEfficiencyLoss() +			   
 			   "\n";		
 	}
 	
