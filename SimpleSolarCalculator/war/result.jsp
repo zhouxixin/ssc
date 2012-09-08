@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%! 
+  	String someOutput() {
+  		String s = "['3',  8,  23],['4',12,45]";
+        return s;
+    }
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,23 +17,46 @@
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
+      google.setOnLoadCallback(drawSavingsChart);
+      
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['year', 'Brisbane Average', 'Yours'],
           ['1',  10,  20],
-          ['2',  13,  22]
+          ['2',  13,  22],
+          <%= someOutput() %>
         ]);
 
         var options = {
-          title: 'Average Daily Solar Generation (KW): ',
-          width:600, height:400,
-          hAxis: {title: 'year', titleTextStyle: {color: 'red'}},          
-          colors: ['#E2041B','#E6B422','#007b43']          
+          title: 'Annual Solar Generation (KW):',
+          titleTextStyle: {color: '#007b43'},
+          width:750, height:350,
+          hAxis: {title: 'year', titleTextStyle: {color: '#007b43'}},          
+          colors: ['#007b43','#E6B422','#E2041B']          
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
         chart.draw(data, options);
-      }      
+      }
+      
+      function drawSavingsChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['year', 'Brisbane Average'],
+            ['1',  10],
+            ['2',  13]            
+          ]);
+
+          var options = {
+            title: 'Annual Savings (KW):',
+            titleTextStyle: {color: '#007b43'},
+            width:750, height:350,
+            hAxis: {title: 'year', titleTextStyle: {color: '#007b43'}},          
+            colors: ['#007b43','#E6B422','#E2041B']          
+          };
+
+          var chart = new google.visualization.ColumnChart(document.getElementById('savingsChartDiv'));
+          chart.draw(data, options);
+        }
       
     </script>
 
@@ -56,12 +86,20 @@
   		<tr>
   			<td colspan="4"> 
   			<div id="overview">OOO</div>
+  			
   			<div id="electricityGeneration">
   			
   			<div id="chart_div"></div>
   			
   			EEE</div>
-  			<div id="savings">SSS</div>
+  			
+  			
+  			
+  			<div id="savings">
+  			<div id="savingsChartDiv"></div>
+  			
+  			
+  			SSS</div>
   			<div id="returnOnInvestment">RRR</div>
   			
   			</td>

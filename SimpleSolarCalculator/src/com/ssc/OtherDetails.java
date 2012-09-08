@@ -16,6 +16,8 @@ public class OtherDetails {
 	private Double annualTariffIncrease;
 	private Double investmentReturnRate;
 	
+	private Integer panelLifespan;		//
+	
 	public OtherDetails() {
 		
 	}
@@ -98,6 +100,19 @@ public class OtherDetails {
 		} else {
 			this.investmentReturnRate = input;
 		}
+	}
+	
+	public void setPanelLifespan(Integer input) throws SolarPowerSystemException {
+		if (input < 1) {
+			throw new SolarPowerSystemException("Panel lifespan " +
+												"should be euqal or greater than 1.");
+		} else {
+			this.panelLifespan = input;
+		}
+	}
+	
+	public Integer getPanelLifespan() {
+		return this.panelLifespan;
 	}
 	
 	public Double getAverageDailyHoursOfSunlight() {

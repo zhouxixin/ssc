@@ -76,7 +76,7 @@ public class SolarPowerSystem {
 	}
 	
 	public void setPanelLifespan(Integer input) throws SolarPowerSystemException {
-		this.banksOfPanles[DEFAULT_BANK_INDEX].setPanelLifespan(input);
+		this.otherDetials.setPanelLifespan(input);
 	}
 	
 	public String toString() {		
@@ -140,19 +140,26 @@ public class SolarPowerSystem {
 		return this.getDailySavings() * 365;
 	}	
 	
-	
+	//outdated
 	public String getFutureOutput() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("\n");
-		for (int year = 1; year <= this.banksOfPanles[DEFAULT_BANK_INDEX].getPanelLifespan(); year++) {
+		for (int year = 1; year <= this.otherDetials.getPanelLifespan(); year++) {
 			sb.append("year ");
 			sb.append(year);
 			sb.append(" - ");
 			sb.append(this.getAnnualSolarGeneration(year).toString().substring(0, 7));			
 			sb.append(" kW\n");
 		}
-		
-		
+					
+		return sb.toString();
+	}
+	
+	public String getFutureAnnulSolarGenerationForChartInput() {
+		StringBuffer sb = new StringBuffer();
+		for (int year = 1; year <= this.otherDetials.getPanelLifespan(); year++) {
+			sb.append("[");
+		}
 		
 		return sb.toString();
 	}
