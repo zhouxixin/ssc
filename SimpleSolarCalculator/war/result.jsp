@@ -5,10 +5,35 @@
 <head>
 <link href = "./styles/style.css" rel = "stylesheet" type = "text/css"/>
 <script type="text/javascript" src = "./scripts/display.js"></script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['year', 'Brisbane Average', 'Yours'],
+          ['1',  10,  20],
+          ['2',  13,  22]
+        ]);
+
+        var options = {
+          title: 'Average Daily Solar Generation (KW): ',
+          width:600, height:400,
+          hAxis: {title: 'year', titleTextStyle: {color: 'red'}},          
+          colors: ['#E2041B','#E6B422','#007b43']          
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }      
+      
+    </script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Result Page</title>
 </head>
-<body>
+<body onload="javascript:showDIV('overview','overviewTag');">
 	<div class = "header">
 		<p>
 			Header
@@ -18,11 +43,7 @@
 	<div class="contentArea">
   	
   	<h1>Result</h1>
-  	
-  	 
-  	
-  	 
-  	 
+
   	<table class="resultTable">
   	
   		<tr>
@@ -35,22 +56,19 @@
   		<tr>
   			<td colspan="4"> 
   			<div id="overview">OOO</div>
-  			<div id="electricityGeneration">EEE</div>
+  			<div id="electricityGeneration">
+  			
+  			<div id="chart_div"></div>
+  			
+  			EEE</div>
   			<div id="savings">SSS</div>
   			<div id="returnOnInvestment">RRR</div>
   			
   			</td>
   		</tr>
   	
-  	</table>
-  	
-  	<div id="hehe">hehe</div>
-  	
-  	<div id="gaga">gaga</div>
-  	
-  	<div><% out.print(request.getAttribute("show").toString()); %></div>
-  			
-  			 
+  	</table>	
+
   			<div id="haha" align="left">
   				<pre>
   				<code>
@@ -58,19 +76,7 @@
   				</code>
   				</pre>  	
   			</div>
-  	
-  	<div><a href="javascript:hideDIVs();">byebye</a></div>
-  	
-  	<div id="headerDiv">
-     <div id="titleText">Hide/Show Div Demo - Click here ==)</div><a id="myHeader" href="javascript:toggle2('myContent','myHeader');" >collapse</a>
-	</div>
-	<div style="clear:both;"></div>
-	<div id="contentDiv">
-     <div id="myContent" style="display: block;">This is the content that is dynamically being collapsed.</div>
-	</div>
-	
-	
-	
+
 <form name="start over" action="/" method="post">
 	<input class="button" type="submit" value="Start Over">
 </form>

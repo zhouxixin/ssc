@@ -1,16 +1,3 @@
-function toggle2(showHideDiv, switchTextDiv) {
-	var ele = document.getElementById(showHideDiv);
-	var text = document.getElementById(switchTextDiv);
-	if(ele.style.display == "block") {
-    		ele.style.display = "none";
-		text.innerHTML = "restore";
-  	}
-	else {
-		ele.style.display = "block";
-		text.innerHTML = "collapse";
-	}
-}
-
 function showDIV(divID,tagID) {
 	hideDIVs();
 	resetTAGs();
@@ -30,4 +17,8 @@ function resetTAGs() {
 	for (var i = 0; i < tagIDs.length ; i++){
 		document.getElementById(tagIDs[i]).style.color = "#007b43";
 	}
+}
+
+function onLoad() {
+	
 }
