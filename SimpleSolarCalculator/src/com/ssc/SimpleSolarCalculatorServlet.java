@@ -78,6 +78,10 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 		request.setAttribute("show", show);
 		
 		request.setAttribute("dailyGeneration", sps.convertIntoFormat(sps.getAverageDailySolarGeneration()));
+		request.setAttribute("annulGeneration", sps.convertIntoFormat(sps.getAnnualSolarGeneration()));
+		request.setAttribute("dailySavings", sps.convertIntoFormat(sps.getDailySavings()));
+		request.setAttribute("annulSavings", sps.convertIntoFormat(sps.getAnnualSavings()));
+		
 		request.setAttribute("futureAnnulSavings", sps.getFutureAnnulSavingsForChartInput());
 		request.setAttribute("compoundInvestmentReturn", sps.getCompoundInvestmentReturnForChartInput());
 		request.setAttribute("cumulativeIncome", sps.getCumulativeIncomeForChartInput());

@@ -106,7 +106,7 @@
   				
   					<tr>
   						<th style="text-align:left;" colspan="2">System summary in year 1</th>
-  						<th>For other details, Please click on the tags above</th>  						
+  						<th style="text-align:right;" colspan="2">For other details, Please click on the tags above</th>  						
   					</tr>
   					
   				
@@ -114,19 +114,27 @@
   						
   						<td>Average Daily Solar Generation</td>
   						<td><% out.print(request.getAttribute("dailyGeneration").toString()); %>&nbsp;kWh</td>
-  						<td></td>
+  						<td>Annual Solar Generation</td>
+  						<td><% out.print(request.getAttribute("annulGeneration").toString()); %>&nbsp;kWh</td>
   						
   					</tr>
+  					
+  					<tr>
+  						
+  						<td>Daily Savings</td>
+  						<td><% out.print(request.getAttribute("dailySavings").toString()); %>&nbsp;AUD</td>
+  						<td>Annual Savings</td>
+  						<td><% out.print(request.getAttribute("annulSavings").toString()); %>&nbsp;AUD</td>
+  					</tr>
+  					
   					<tr>
   						
   						<td>Pay-Back time</td>
-  						<td><% out.print(request.getAttribute("payBackTime").toString()); %>&nbsp;YEARS</td>
+  						<td><% out.print(request.getAttribute("payBackTime").toString()); %>&nbsp;YEAR(S)</td>
   						<td></td>
-  						
+  						<td></td>
   					</tr>
-  					<tr></tr>
-  					<tr></tr>
-  					<tr></tr>
+  					
   				</table>
   			
   			</div>
