@@ -103,26 +103,25 @@
   			<td colspan="4"> 
   			<div id="overview">  				
   				<table>
-  				<!--
+  				
   					<tr>
-  						<th style="text-align:left;" colspan="5">Summary</th>
+  						<th style="text-align:left;" colspan="2">System summary in year 1</th>
+  						<th>For other details, Please click on the tags above</th>  						
   					</tr>
   					
-  				-->
+  				
   					<tr>
   						
   						<td>Average Daily Solar Generation</td>
   						<td><% out.print(request.getAttribute("dailyGeneration").toString()); %>&nbsp;kWh</td>
-  						<td>Average Daily Savings</td>
-  						<td>23</td>
+  						<td></td>
   						
   					</tr>
   					<tr>
   						
   						<td>Pay-Back time</td>
   						<td><% out.print(request.getAttribute("payBackTime").toString()); %>&nbsp;YEARS</td>
-  						<td>ASavings</td>
-  						<td>23tt</td>
+  						<td></td>
   						
   					</tr>
   					<tr></tr>
