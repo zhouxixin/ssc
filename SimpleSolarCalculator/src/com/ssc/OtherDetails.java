@@ -148,6 +148,20 @@ public class OtherDetails {
 		return this.investmentReturnRate;
 	}
 	
+	public Double getCompoundInvestmentReturn(Integer year) {
+		return this.getSystemCost() * Math.pow(1 + this.getInvestmentReturnRate(), year);
+	}
+	
+	
+	public Double getInvestmentIncome() {
+		return this.getSystemCost() * this.getInvestmentReturnRate();
+	}
+	
+	public Double getCumulativeIncome(Integer year) {		
+		return this.getInvestmentIncome() * year;		
+	}
+	
+	
 	@Override
 	public String toString() {		
 		return "\n< Other Details >" +

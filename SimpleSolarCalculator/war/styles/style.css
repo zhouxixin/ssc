@@ -57,11 +57,7 @@ table.summaryTable th {
 	text-align: left;
 }
 
-#overview {
-	min-width: 600px;
-	max-width: 600px;
-	margin: auto;
-}
+
 
 /*
 table caption { 

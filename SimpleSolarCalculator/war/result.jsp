@@ -18,6 +18,7 @@
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawAnnualGenerationChart);
       google.setOnLoadCallback(drawSavingsChart);
+      google.setOnLoadCallback(drawReturnonInvestmentChart);
       
       function drawAnnualGenerationChart() {
         var data = google.visualization.arrayToDataTable([
@@ -33,7 +34,7 @@
           colors: ['#007b43','#E6B422','#E2041B']          
         };
 
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.ColumnChart(document.getElementById('generationChartDiv'));
         chart.draw(data, options);
       }
       
@@ -52,6 +53,24 @@
           };
 
           var chart = new google.visualization.ColumnChart(document.getElementById('savingsChartDiv'));
+          chart.draw(data, options);
+        }
+      
+      function drawReturnonInvestmentChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['year', 'Cumulative Annual Savings (AUD)', 'Compound Investment Return (AUD)', 'Cumulative Income (AUD)'],
+            <% out.print(request.getAttribute("returnOnInvestment").toString()); %>                        
+          ]);
+
+          var options = {
+            title: 'Return on Investment (AUD):',
+            titleTextStyle: {color: '#E6B422'},
+            width:750, height:350,
+            hAxis: {title: 'year', titleTextStyle: {color: '#007b43'}},          
+            colors: ['#007b43','#E6B422','#E2041B']          
+          };
+
+          var chart = new google.visualization.ColumnChart(document.getElementById('returnChartDiv'));
           chart.draw(data, options);
         }
       
@@ -100,8 +119,8 @@
   					</tr>
   					<tr>
   						
-  						<td>Generation</td>
-  						<td><% out.print(request.getAttribute("dailyGeneration").toString()); %>&nbsp;kWh</td>
+  						<td>Pay-Back time</td>
+  						<td><% out.print(request.getAttribute("payBackTime").toString()); %>&nbsp;YEARS</td>
   						<td>ASavings</td>
   						<td>23tt</td>
   						
@@ -114,14 +133,17 @@
   			</div>
   			
   			<div id="electricityGeneration">  			
-  				<div id="chart_div"></div>  			
+  				<div id="generationChartDiv"></div>  			
   			</div>
   			  			 			
   			<div id="savings">
   				<div id="savingsChartDiv"></div>
   			</div>
   			
-  			<div id="returnOnInvestment"><% out.print(request.getAttribute("futureAnnulGeneration").toString());  %></div>
+  			<div id="returnOnInvestment">
+  				<div id="returnChartDiv"></div>
+  			
+  			</div>
   			
   			</td>
   		</tr>

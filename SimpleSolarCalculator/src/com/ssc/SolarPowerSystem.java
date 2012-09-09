@@ -164,6 +164,16 @@ public class SolarPowerSystem {
 		return this.getDailySavings(year) * 365;
 	}
 	
+	public Double getCumulativeAnnualSavings(Integer year) {
+		Double sum = 0.0;
+		
+		for (int i = 1; i <= year ; i++){
+			sum += this.getAnnualSavings(year);
+		}
+		
+		return sum;
+	}
+	
 	//outdated
 	public String getFutureOutput() {
 		StringBuffer sb = new StringBuffer();
@@ -211,6 +221,59 @@ public class SolarPowerSystem {
 		return sb.toString();
 	}
 	
+	
+	public String getCumulativeIncomeForChartInput() {
+		StringBuffer sb = new StringBuffer();
+		for (int year = 1; year <= this.otherDetials.getPanelLifespan(); year++) {
+			sb.append("['");
+			sb.append(year);
+			sb.append("',");
+			sb.append(this.convertIntoFormat(this.otherDetials.getCumulativeIncome(year)));
+			sb.append("]");
+			
+			if (year < this.otherDetials.getPanelLifespan())
+				sb.append(",");
+		}
+		
+		return sb.toString();
+	}
+	
+	public String getCompoundInvestmentReturnForChartInput() {
+		StringBuffer sb = new StringBuffer();
+		for (int year = 1; year <= this.otherDetials.getPanelLifespan(); year++) {
+			sb.append("['");
+			sb.append(year);
+			sb.append("',");
+			sb.append(this.convertIntoFormat(this.otherDetials.getCompoundInvestmentReturn(year)));
+			sb.append("]");
+			
+			if (year < this.otherDetials.getPanelLifespan())
+				sb.append(",");
+		}
+		
+		return sb.toString();
+	}
+	
+	public String getReturnOnInvestmentForChartInput() {
+		StringBuffer sb = new StringBuffer();
+		for (int year = 1; year <= this.otherDetials.getPanelLifespan(); year++) {
+			sb.append("['");
+			sb.append(year);
+			sb.append("',");
+			sb.append(this.convertIntoFormat(this.getCumulativeAnnualSavings(year)));
+			sb.append(",");
+			sb.append(this.convertIntoFormat(this.otherDetials.getCompoundInvestmentReturn(year)));
+			sb.append(",");
+			sb.append(this.convertIntoFormat(this.otherDetials.getCumulativeIncome(year)));
+			sb.append("]");
+			
+			if (year < this.otherDetials.getPanelLifespan())
+				sb.append(",");
+		}
+		
+		return sb.toString();
+	}
+	
 	public Double getAnnualTariffIncrease() {
 		return this.otherDetials.getAnnualTariffIncrease();
 	}
@@ -226,4 +289,16 @@ public class SolarPowerSystem {
 	public void setInvestmentReturnRate(Double input) throws SolarPowerSystemException {
 		this.otherDetials.setInvestmentReturnRate(input);
 	}
+	
+	public Integer getPayBackTime() {
+		
+		for (int year = 1; year <= this.otherDetials.getPanelLifespan(); year++){
+			if ((this.otherDetials.getCompoundInvestmentReturn(year) - 
+					this.getCumulativeAnnualSavings(year)) < 0) {
+				return year;
+			}			
+		}
+		return 0;
+	}
+	
 }
