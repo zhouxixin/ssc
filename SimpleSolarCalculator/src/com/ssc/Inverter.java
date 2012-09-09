@@ -8,7 +8,7 @@ public class Inverter {
 		
 	}
 	
-	public void setInverterEfficiency (Double input) throws SolarPowerSystemException {
+	public void setInverterEfficiency(Double input) throws SolarPowerSystemException {
 		if (input < 0.0 || input > 1.0) {
 			throw new SolarPowerSystemException("Inverter Efficiency " +
 												"should be valid percentage.");
@@ -17,13 +17,19 @@ public class Inverter {
 		}
 	}
 	
+	public Double getInverterEfficiency() {
+		return this.inverterEfficiency;
+	} 
+	
 	public Double getOutput(BankOfPanels b) {
-		return b.getOutput() * this.inverterEfficiency;
+		return b.getOutput() * this.getInverterEfficiency();
 	}
 	
+	/*
 	public Double getOutput(Double input) {
-		return input * this.inverterEfficiency;
+		return input * this.getInverterEfficiency();
 	}
+	*/
 	
 	@Override
 	public String toString() {		

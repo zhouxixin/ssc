@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 public class SolarPowerSystem {
 	
 	private BankOfPanels[] banksOfPanles;
-	private BankOfPanels bank0;
+	//private BankOfPanels bank0;
 	private Inverter inverter;
 	private OtherDetails otherDetials;
 	private final Integer DEFAULT_NUMBER_OF_BANKS = 1;
