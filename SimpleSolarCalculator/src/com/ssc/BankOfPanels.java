@@ -11,7 +11,7 @@ public class BankOfPanels {
 	private Double panelEfficiency;				 	  // percentage in decimal form
 	private Double panelAgeEfficiencyLoss;		      // percentage in decimal form
 	
-	private Integer panelLifespan;
+	//private Integer panelLifespan;
 	
 	private Double[] percentagesOnOrientations;       // percentages in decimal form
 	private final Integer NUMBER_OF_ORIENTATIONS = 2; // number of orientations 
@@ -44,24 +44,14 @@ public class BankOfPanels {
 		}		
 	}
 	
+	/*
 	public void setPercentagesOnOrientations(Integer north,
 			Integer west) throws SolarPowerSystemException {		
 		this.setPercentagesOnOrientations(persentageToDecimalForm(north), persentageToDecimalForm(west));
 		
 		
 	}
-	
-	static boolean isValidPercentage (Double input) {
-		if (input >= 0.0 && input <= 1.0)		
-			return true;
-		else
-			return false;
-	}
-	
-		
-	private Double persentageToDecimalForm(Integer input) {
-		return input/100.00;
-	}
+	*/
 	
 	public void setEfficiencyLossNorthRoof(Double input) throws SolarPowerSystemException {
 		if (!isValidPercentage(input)) {
@@ -100,6 +90,7 @@ public class BankOfPanels {
 		}
 	}
 	
+	/*
 	public void setPanelLifespan(Integer input) throws SolarPowerSystemException {
 		if (input < 1) {
 			throw new SolarPowerSystemException("Panel lifespan " +
@@ -108,6 +99,7 @@ public class BankOfPanels {
 			this.panelLifespan = input;
 		}
 	}
+	*/
 	
 	@Override
 	public String toString() {		
@@ -123,30 +115,81 @@ public class BankOfPanels {
 	}
 	
 	public Double getOutput() {
-		return this.systemSize * this.panelEfficiency * 
+		return this.getSystemSize() * this.getPanelEfficiency() * 
+				(this.getPercentageOnNorthRoof() * (1 - this.getEfficiencyLossNorthRoof()) +
+				 this.getPercentageOnWestRoof() * (1 - this.getEfficiencyLossWestRoof()));		
+	}
+	
+	/*
+	 public Double getOutput() {
+		return this.getSystemSize() * this.getPanelEfficiency() * 
 				(this.percentagesOnOrientations[NORTH] * (1 - this.efficiencyLossNorthRoof) +
 				 this.percentagesOnOrientations[WEST] * (1 - this.efficiencyLossWestRoof));		
 	}
-	
-	public Double getOutPut(Integer year) {
+	 
+	 public Double getOutPut(Integer year) {
 		return this.getOutput() * this.getPanelEfficiency(year) / this.getPanelEfficiency();
+	}
+	  
+	  
+	 */
+	
+	public Double getOutput(Integer year) {
+		return this.getSystemSize() * this.getPanelEfficiency(year) * 
+				(this.getPercentageOnNorthRoof() * (1 - this.getEfficiencyLossNorthRoof()) +
+				 this.getPercentageOnWestRoof() * (1 - this.getEfficiencyLossWestRoof()));
 	}
 	
 	public Double getPanelEfficiency() {
 		return this.panelEfficiency;
 	}
 	
+	public Double getPanelEfficiency(Integer year) {
+		return this.getPanelEfficiency() - 
+				this.getPanelAgeEfficiencyLoss() * (year - 1);		
+	}
+	
+	/*
 	public Integer getPanelLifespan() {
 		return this.panelLifespan;
 	}
+	*/
 	
 	public Double getPanelAgeEfficiencyLoss() {
 		return this.panelAgeEfficiencyLoss;
 	}
 	
-	public Double getPanelEfficiency(Integer year) {
-		return this.getPanelEfficiency() - 
-				this.getPanelAgeEfficiencyLoss() * (year - 1);		
+	public Double getSystemSize() {
+		return this.systemSize;
+	}
+	
+	public Double getPercentageOnNorthRoof() {
+		return this.percentagesOnOrientations[NORTH];
+	}
+	
+	public Double getPercentageOnWestRoof() {
+		return this.percentagesOnOrientations[WEST];
+	}
+	
+	public Double getEfficiencyLossNorthRoof() {
+		return this.efficiencyLossNorthRoof;
+	}
+	
+	public Double getEfficiencyLossWestRoof() {
+		return this.efficiencyLossWestRoof;
+	}
+	
+	/*
+	private Double persentageToDecimalForm(Integer input) {
+		return input/100.00;
+	}
+	*/
+
+	static boolean isValidPercentage (Double input) {
+		if (input >= 0.0 && input <= 1.0)		
+			return true;
+		else
+			return false;
 	}
 	
 
