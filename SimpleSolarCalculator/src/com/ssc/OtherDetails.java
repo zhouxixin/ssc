@@ -127,6 +127,11 @@ public class OtherDetails {
 		return this.electricityRate;
 	}
 	
+	public Double getElectricityRate(Integer year) {
+		return this.electricityRate * 
+				(Math.pow(1 + this.getAnnualTariffIncrease(), year-1));
+	}
+	
 	public Double getFeedInFee() {
 		return this.feedInFee;
 	}

@@ -22,7 +22,7 @@
       function drawAnnualGenerationChart() {
         var data = google.visualization.arrayToDataTable([
           ['year', 'Annual Solar Generation (kWh)'],          
-          <% out.print(request.getAttribute("annulGeneration").toString());  %>
+          <% out.print(request.getAttribute("futureAnnulGeneration").toString()); %>
         ]);
 
         var options = {
@@ -39,15 +39,14 @@
       
       function drawSavingsChart() {
           var data = google.visualization.arrayToDataTable([
-            ['year', 'Brisbane Average'],
-            ['1',  10],
-            ['2',  13]            
+            ['year', 'Annual Savings (AUD)'],
+            <% out.print(request.getAttribute("futureAnnulSavings").toString()); %>                        
           ]);
 
           var options = {
-            title: 'Annual Savings (KW):',
-            titleTextStyle: {color: '#007b43'},
-            width:800, height:350,
+            title: 'Annual Savings (AUD):',
+            titleTextStyle: {color: '#E6B422'},
+            width:750, height:350,
             hAxis: {title: 'year', titleTextStyle: {color: '#007b43'}},          
             colors: ['#007b43','#E6B422','#E2041B']          
           };
@@ -83,13 +82,29 @@
   		
   		<tr>
   			<td colspan="4"> 
-  			<div id="overview">OOO
+  			<div id="overview">  				
   				<table>
+  				<!--
   					<tr>
+  						<th style="text-align:left;" colspan="5">Summary</th>
+  					</tr>
+  					
+  				-->
+  					<tr>
+  						
   						<td>Average Daily Solar Generation</td>
-  						<td>12</td>
+  						<td><% out.print(request.getAttribute("dailyGeneration").toString()); %>&nbsp;kWh</td>
   						<td>Average Daily Savings</td>
   						<td>23</td>
+  						
+  					</tr>
+  					<tr>
+  						
+  						<td>Generation</td>
+  						<td><% out.print(request.getAttribute("dailyGeneration").toString()); %>&nbsp;kWh</td>
+  						<td>ASavings</td>
+  						<td>23tt</td>
+  						
   					</tr>
   					<tr></tr>
   					<tr></tr>
@@ -98,19 +113,15 @@
   			
   			</div>
   			
-  			<div id="electricityGeneration">
-  			
-  			<div id="chart_div"></div>
-  			
-  			EEE</div>
-  			
-  			
-  			
+  			<div id="electricityGeneration">  			
+  				<div id="chart_div"></div>  			
+  			</div>
+  			  			 			
   			<div id="savings">
   				<div id="savingsChartDiv"></div>
   			</div>
   			
-  			<div id="returnOnInvestment"><% out.print(request.getAttribute("annulGeneration").toString());  %></div>
+  			<div id="returnOnInvestment"><% out.print(request.getAttribute("futureAnnulGeneration").toString());  %></div>
   			
   			</td>
   		</tr>

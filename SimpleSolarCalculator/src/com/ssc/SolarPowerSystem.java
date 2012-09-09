@@ -11,6 +11,8 @@ public class SolarPowerSystem {
 	private OtherDetails otherDetials;
 	private final Integer DEFAULT_NUMBER_OF_BANKS = 1;
 	private final Integer DEFAULT_BANK_INDEX = 0;
+	
+	private final Integer FIRST_YEAR = 1;
 	/** 
 	 * Format for output
 	 */
@@ -100,13 +102,14 @@ public class SolarPowerSystem {
 			   "\n";		
 	}
 	
-	private String convertIntoFormat(Double input) {		
+	public String convertIntoFormat(Double input) {		
 		return new DecimalFormat(this.DecFormat).format(input);
 	}
 	
 	public Double getAverageDailySolarGeneration() {
-		return this.inverter.getOutput(banksOfPanles[DEFAULT_BANK_INDEX]) * 
-				this.otherDetials.getAverageDailyHoursOfSunlight();
+		return this.getAverageDailySolarGeneration(FIRST_YEAR);
+		//return this.inverter.getOutput(banksOfPanles[DEFAULT_BANK_INDEX]) * 
+		//		this.otherDetials.getAverageDailyHoursOfSunlight();
 	}
 	
 	public Double getAverageDailySolarGeneration(Integer year) {
@@ -121,6 +124,11 @@ public class SolarPowerSystem {
 				this.otherDetials.getAverageDailyHoursOfSunlight();
 	}
 	
+	public Double getExportedGeneration(Integer year) {
+		return this.getAverageDailySolarGeneration(year) -
+				this.getReplacementGeneration();
+	}
+	
 	public Double getExportedGeneration() {
 		return this.getAverageDailySolarGeneration() -
 				this.getReplacementGeneration();
@@ -133,8 +141,15 @@ public class SolarPowerSystem {
 				this.otherDetials.getFeedInFee();
 	}
 	
+	public Double getDailySavings(Integer year) {
+		return this.getReplacementGeneration() * 
+				this.otherDetials.getElectricityRate(year) +
+				this.getExportedGeneration(year) *
+				this.otherDetials.getFeedInFee();
+	}
+	
 	public Double getAnnualSolarGeneration() {
-		return this.getAverageDailySolarGeneration() * 365;
+		return this.getAverageDailySolarGeneration(FIRST_YEAR) * 365;
 	}
 	
 	public Double getAnnualSolarGeneration(Integer year) {
@@ -143,7 +158,11 @@ public class SolarPowerSystem {
 	
 	public Double getAnnualSavings() {
 		return this.getDailySavings() * 365;
-	}	
+	}
+	
+	public Double getAnnualSavings(Integer year) {
+		return this.getDailySavings(year) * 365;
+	}
 	
 	//outdated
 	public String getFutureOutput() {
@@ -167,6 +186,22 @@ public class SolarPowerSystem {
 			sb.append(year);
 			sb.append("',");
 			sb.append(this.convertIntoFormat(this.getAnnualSolarGeneration(year)));
+			sb.append("]");
+			
+			if (year < this.otherDetials.getPanelLifespan())
+				sb.append(",");
+		}
+		
+		return sb.toString();
+	}
+	
+	public String getFutureAnnulSavingsForChartInput() {
+		StringBuffer sb = new StringBuffer();
+		for (int year = 1; year <= this.otherDetials.getPanelLifespan(); year++) {
+			sb.append("['");
+			sb.append(year);
+			sb.append("',");
+			sb.append(this.convertIntoFormat(this.getAnnualSavings(year)));
 			sb.append("]");
 			
 			if (year < this.otherDetials.getPanelLifespan())

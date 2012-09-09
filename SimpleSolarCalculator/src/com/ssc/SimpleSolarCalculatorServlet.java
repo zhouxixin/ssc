@@ -76,7 +76,11 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 		//~~~~~~~
 		String show = sps.toString();
 		request.setAttribute("show", show);
-		request.setAttribute("annulGeneration", sps.getFutureAnnulSolarGenerationForChartInput());
+		
+		request.setAttribute("dailyGeneration", sps.convertIntoFormat(sps.getAverageDailySolarGeneration()));
+		request.setAttribute("futureAnnulSavings", sps.getFutureAnnulSavingsForChartInput());
+		
+		request.setAttribute("futureAnnulGeneration", sps.getFutureAnnulSolarGenerationForChartInput());
 	    String url="/result.jsp"; //relative url for display jsp page
 	    
 	    
