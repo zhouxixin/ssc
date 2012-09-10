@@ -34,30 +34,30 @@
 		
 		<tr>			
         	<td>System Size (kW)</td>
-        	<td><input type="text" class="dataInput" name="systemSize" value=""></td>
+        	<td><input type="text" class="dataInput" name="systemSize" value="4.95"></td>
         	<td>Panel Efficiency (%)</td>
-        	<td><input type="text" class="dataInput" name="panelEfficiency" value=""></td>        
+        	<td><input type="text" class="dataInput" name="panelEfficiency" value="100"></td>        
       	</tr>
       
         <tr>
         	<td>Percentage on North Roof (%)</td>
-        	<td><input type="text" class="dataInput" name="percentageOnNorthRoof" value=""></td>
+        	<td><input type="text" class="dataInput" name="percentageOnNorthRoof" value="38"></td>
         	<td>Percentage on West Roof (%)</td>
-        	<td><input type="text" class="dataInput" name="percentageOnWestRoof" value=""></td>        
+        	<td><input type="text" class="dataInput" name="percentageOnWestRoof" value="62"></td>        
         </tr>
       
       	<tr>
         	<td>Efficiency Loss (North Roof) (%)</td>
-        	<td><input type="text" class="dataInput" name="efficiencyLossNorthRoof" value=""></td>
+        	<td><input type="text" class="dataInput" name="efficiencyLossNorthRoof" value="5"></td>
        		<td>Efficiency Loss (West Roof) (%)</td>
-        	<td><input type="text" class="dataInput" name="efficiencyLossWestRoof" value=""></td>        
+        	<td><input type="text" class="dataInput" name="efficiencyLossWestRoof" value="15"></td>        
       	</tr>
       	
       	<tr>
         	<td>Panel Age Efficiency Loss (%)</td>
-        	<td><input type="text" class="dataInput" name="panelAgeEfficiencyLoss" value=""></td>
+        	<td><input type="text" class="dataInput" name="panelAgeEfficiencyLoss" value="0.7"></td>
        		<td>Panel Lifespan (YEARS)</td>
-        	<td><input type="text" class="dataInput" name="panelLifespan" value=""></td>        
+        	<td><input type="text" class="dataInput" name="panelLifespan" value="25"></td>        
       	</tr>
       
       	<tr>
@@ -66,37 +66,37 @@
       
       	<tr>
         	<td>Inverter Efficiency (%)</td>
-        	<td><input type="text" class="dataInput" name="inverterEfficiency" value=""></td>
+        	<td><input type="text" class="dataInput" name="inverterEfficiency" value="96"></td>
         	<td></td>
         	<td></td>         
       	</tr>
       
       	<tr>
         	<td>Average Daily Hours of Sunlight (H)</td>
-        	<td><input type="text" class="dataInput" name="averageDailyHoursOfSunlight" value=""></td>
+        	<td><input type="text" class="dataInput" name="averageDailyHoursOfSunlight" value="4.5"></td>
         	<td>DayTimeHourlyUsage (kW)</td>
-        	<td><input type="text" class="dataInput" name="dayTimeHourlyUsage" value=""></td>        
+        	<td><input type="text" class="dataInput" name="dayTimeHourlyUsage" value="1"></td>        
       	</tr> 
       	
       	<tr>
         	<td>Electricity Rate (AUD)</td>
-        	<td><input type="text" class="dataInput" name="electricityRate" value=""></td>
+        	<td><input type="text" class="dataInput" name="electricityRate" value="0.19"></td>
         	<td>Feed In Fee (AUD)</td>
-        	<td><input type="text" class="dataInput" name="feedInFee" value=""></td>        
+        	<td><input type="text" class="dataInput" name="feedInFee" value="0.50"></td>        
       	</tr>  
       	
       	<tr>
         	<td>System Cost (AUD)</td>
-        	<td><input type="text" class="dataInput" name="systemCost" value=""></td>
+        	<td><input type="text" class="dataInput" name="systemCost" value="20000"></td>
         	<td></td>
         	<td></td>        
       	</tr>
       	
       	<tr>
         	<td>Annual Tariff Increase (%)</td>
-        	<td><input type="text" class="dataInput" name="annualTariffIncrease" value=""></td>
+        	<td><input type="text" class="dataInput" name="annualTariffIncrease" value="5"></td>
         	<td>Investment Return Rate (%)</td>
-        	<td><input type="text" class="dataInput" name="investmentReturnRate" value=""></td>        
+        	<td><input type="text" class="dataInput" name="investmentReturnRate" value="5"></td>        
       	</tr>   
       	
     	</table>    	
