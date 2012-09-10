@@ -85,7 +85,7 @@ public class OtherDetails {
 	
 	//not really need to be under 100%
 	public void setAnnualTariffIncrease(Double input) throws SolarPowerSystemException {
-		if (!BankOfPanels.isValidPercentage(input)) {
+		if (input < 0.0) {
 			throw new SolarPowerSystemException("Annual tariff increase" +
 												"should be greater than 0");
 		} else {

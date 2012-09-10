@@ -11,6 +11,11 @@ public class OtherDetailsTest {
 	private final Double AVERAGE_DAILY_HOURS_OF_SUNLIGHT = 3.3;
 	private final Double DAY_TIME_HOURLY_USAGE = 3.3;
 	private final Double ELECTRICITY_RATE = 0.67;
+	private final Double ELECTRICITY_RATE_YEAR_6 = 0.8551;
+	private final Double ANNUAL_TARIFF_INCREASE = 0.05;
+	
+	private final Double EPSILON = 0.001;
+	
 
 	@Before
 	public void setUp() throws SolarPowerSystemException {
@@ -20,6 +25,7 @@ public class OtherDetailsTest {
 				AVERAGE_DAILY_HOURS_OF_SUNLIGHT);
 		this.otherDetails.setDayTimeHourlyUsage(DAY_TIME_HOURLY_USAGE);
 		this.otherDetails.setElectricityRate(ELECTRICITY_RATE);
+		this.otherDetails.setAnnualTariffIncrease(ANNUAL_TARIFF_INCREASE);
 	}
 	
    /**
@@ -137,6 +143,31 @@ public class OtherDetailsTest {
 	}
 	
 
+	/**
+  	* test setAnnualTariffIncrease(Double input)
+  	*  
+  	* 1. valid input
+  	* 2. 0
+	* 3. negative input	  
+	*/	
+	@Test
+	public void testSetAnnualTariffIncrease() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setAnnualTariffIncrease(5.5);
+	}
+	
+	@Test 
+	public void testSetAnnualTariffIncreaseWithZero() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setAnnualTariffIncrease(0.0);
+	}
+	
+	@Test (expected = SolarPowerSystemException.class)
+	public void testSetAnnualTariffIncreaseWithNegativeInput() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setAnnualTariffIncrease(-5.0);
+	}
+	
 	
 	
 	
@@ -178,5 +209,27 @@ public class OtherDetailsTest {
 		assertEquals(this.ELECTRICITY_RATE, 
 				this.otherDetails.getElectricityRate());
 	}
+		
+	/**
+	* test getElectricityRate(Integer year)
+	*/
+	@Test
+	public void testGetElectricityRateWithYearParameter() {
+		final Integer YEAR = 6;		
+		assertEquals(this.ELECTRICITY_RATE_YEAR_6, 
+				this.otherDetails.getElectricityRate(YEAR),
+				EPSILON);
+	}
+	
+	/**
+	* test getAnnualTariffIncrease()
+	*/
+	@Test
+	public void testGetAnnualTariffIncrease() {
+		assertEquals(this.ANNUAL_TARIFF_INCREASE, 
+				this.otherDetails.getAnnualTariffIncrease());
+	}
+	
+	
 	
 }
