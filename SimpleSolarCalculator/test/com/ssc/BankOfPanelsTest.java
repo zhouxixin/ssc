@@ -16,8 +16,10 @@ public class BankOfPanelsTest {
 	private final Double PANEL_EFFICIENCY = 0.95;
 	private final Double PANEL_AGE_EFFICIENCY_LOSS = 0.03;
 	
-	private final Double EXPECTED_OUTPUT_YEAR_1 = 4.2275;
+	private final Double EXPECTED_OUTPUT_YEAR_1 = 4.228;
 	private final Double EXPECTED_OUTPUT_YEAR_4 = 3.827;
+	
+	private final Double EPSILON = 0.001;
 	
 	
 	@Before
@@ -353,7 +355,7 @@ public class BankOfPanelsTest {
 	*/
 	@Test
 	public void testGetOutput() {		 
-		assertEquals(EXPECTED_OUTPUT_YEAR_1, this.bank.getOutput());		
+		assertEquals(EXPECTED_OUTPUT_YEAR_1, this.bank.getOutput(), EPSILON);		
 	}
 	
 	/**
@@ -362,7 +364,7 @@ public class BankOfPanelsTest {
 	@Test
 	public void testGetOutputWithYearParameter() {
 		final Integer YEAR = 4;		
-		assertEquals(EXPECTED_OUTPUT_YEAR_4, this.bank.getOutput(YEAR));
+		assertEquals(EXPECTED_OUTPUT_YEAR_4, this.bank.getOutput(YEAR), EPSILON);
 	}
 	
 }

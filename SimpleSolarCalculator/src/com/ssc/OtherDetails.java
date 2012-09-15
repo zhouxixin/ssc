@@ -24,7 +24,7 @@ public class OtherDetails {
 	
 	public void setAverageDailyHoursOfSunlight(Double input) throws SolarPowerSystemException {
 		if (input < 0.0 || input > 24.0) {
-			throw new SolarPowerSystemException("Dverage daily hours of sun light" +
+			throw new SolarPowerSystemException("Dverage daily hours of sun light " +
 												"should be between 0 and 24 hours."); 
 		} else {
 			this.averageDailyHoursOfSunlight = input;
@@ -45,7 +45,7 @@ public class OtherDetails {
 	
 	public void setDayTimeHourlyUsage(Double input) throws SolarPowerSystemException {
 		if (input < 0.0) {
-			throw new SolarPowerSystemException("Day time hourly usage" +
+			throw new SolarPowerSystemException("Day time hourly usage " +
 												"should be equal to or greater than 0");
 		} else {
 			this.dayTimeHourlyUsage = input;
@@ -55,7 +55,7 @@ public class OtherDetails {
 		
 	public void setElectricityRate(Double input) throws SolarPowerSystemException {
 		if (input <= 0.0) {
-			throw new SolarPowerSystemException("Electricity rate" +
+			throw new SolarPowerSystemException("Electricity rate " +
 												"should be greater than 0");
 		} else {
 			this.electricityRate = input;
@@ -65,7 +65,7 @@ public class OtherDetails {
 	
 	public void setFeedInFee(Double input) throws SolarPowerSystemException {
 		if (input <= 0.0) {
-			throw new SolarPowerSystemException("Feed in fee" +
+			throw new SolarPowerSystemException("Feed in fee " +
 												"should be greater than 0");
 		} else {
 			this.feedInFee = input;
@@ -75,7 +75,7 @@ public class OtherDetails {
 	
 	public void setSystemCost(Double input) throws SolarPowerSystemException {
 		if (input <= 0.0) {
-			throw new SolarPowerSystemException("System cost" +
+			throw new SolarPowerSystemException("System cost " +
 												"should be greater than 0");
 		} else {
 			this.systemCost = input;
@@ -86,17 +86,17 @@ public class OtherDetails {
 	//not really need to be under 100%
 	public void setAnnualTariffIncrease(Double input) throws SolarPowerSystemException {
 		if (input < 0.0) {
-			throw new SolarPowerSystemException("Annual tariff increase" +
-												"should be greater than 0");
+			throw new SolarPowerSystemException("Annual tariff increase " +
+												"should not be less than 0");
 		} else {
 			this.annualTariffIncrease = input;
 		}
 	}
 	
 	public void setInvestmentReturnRate(Double input) throws SolarPowerSystemException {
-		if (!BankOfPanels.isValidPercentage(input)) {
-			throw new SolarPowerSystemException("Investment Return Rate" +
-												"should be greater than 0");
+		if (input < 0.0) {
+			throw new SolarPowerSystemException("Investment Return Rate " +
+												"should not be less than 0");
 		} else {
 			this.investmentReturnRate = input;
 		}

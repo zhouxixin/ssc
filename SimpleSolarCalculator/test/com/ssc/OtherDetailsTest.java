@@ -13,6 +13,9 @@ public class OtherDetailsTest {
 	private final Double ELECTRICITY_RATE = 0.67;
 	private final Double ELECTRICITY_RATE_YEAR_6 = 0.8551;
 	private final Double ANNUAL_TARIFF_INCREASE = 0.05;
+	private final Double INVESTMENT_RETURN_RATE = 0.05;
+	private final Double FEED_IN_FEE = 0.5;
+	private final Double SYSTEM_COST = 25000.0;
 	
 	private final Double EPSILON = 0.001;
 	
@@ -26,6 +29,9 @@ public class OtherDetailsTest {
 		this.otherDetails.setDayTimeHourlyUsage(DAY_TIME_HOURLY_USAGE);
 		this.otherDetails.setElectricityRate(ELECTRICITY_RATE);
 		this.otherDetails.setAnnualTariffIncrease(ANNUAL_TARIFF_INCREASE);
+		this.otherDetails.setInvestmentReturnRate(INVESTMENT_RETURN_RATE);
+		this.otherDetails.setFeedInFee(FEED_IN_FEE);
+		this.otherDetails.setSystemCost(SYSTEM_COST);
 	}
 	
    /**
@@ -117,7 +123,7 @@ public class OtherDetailsTest {
 		this.otherDetails.setDayTimeHourlyUsage(-6.5);
 	}
 	
-	/**
+   /**
   	* test setElectricityRate(Double input)
   	*  
   	* 1. valid input
@@ -143,7 +149,7 @@ public class OtherDetailsTest {
 	}
 	
 
-	/**
+   /**
   	* test setAnnualTariffIncrease(Double input)
   	*  
   	* 1. valid input
@@ -168,12 +174,110 @@ public class OtherDetailsTest {
 		this.otherDetails.setAnnualTariffIncrease(-5.0);
 	}
 	
+   /**
+  	* test setInvestmentReturnRate(Double input)
+  	*  
+  	* 1. valid input
+  	* 2. 0
+	* 3. negative input	  
+	*/	
+	@Test
+	public void testSetInvestmentReturnRate() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setInvestmentReturnRate(5.5);
+	}
+	
+	@Test 
+	public void testSetInvestmentReturnRateWithZero() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setInvestmentReturnRate(0.0);
+	}
+	
+	@Test (expected = SolarPowerSystemException.class)
+	public void testSetInvestmentReturnRateWithNegativeInput() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setInvestmentReturnRate(-5.0);
+	}
+	
+   /**
+  	* test setFeedInFee(Double input)
+  	*  
+  	* 1. valid input
+  	* 2. 0
+	* 3. negative input	  
+	*/	
+	@Test
+	public void testSetFeedInFee() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setFeedInFee(5.5);
+	}
+	
+	@Test (expected = SolarPowerSystemException.class)
+	public void testSetFeedInFeeWithZero() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setFeedInFee(0.0);
+	}
+	
+	@Test (expected = SolarPowerSystemException.class)
+	public void testSetFeedInFeeWithNegativeInput() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setFeedInFee(-5.0);
+	}
+	
+
+	 /**
+  	* test setSystemCost(Double input)
+  	*  
+  	* 1. valid input
+  	* 2. 0
+	* 3. negative input	  
+	*/	
+	@Test
+	public void testSetSystemCost() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setSystemCost(50000.0);
+	}
+	
+	@Test (expected = SolarPowerSystemException.class)
+	public void testSetSystemCostWithZero() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setSystemCost(0.0);
+	}
+	
+	@Test (expected = SolarPowerSystemException.class)
+	public void testSetSystemCostWithNegativeInput() 
+			throws SolarPowerSystemException {
+		this.otherDetails.setSystemCost(-50000.0);
+	}
 	
 	
 	
 	
 	
+	/**
+	* test getSystemCost()
+	*/
+	@Test
+	public void testGetSystemCost() {
+		assertEquals(this.SYSTEM_COST, this.otherDetails.getSystemCost());
+	}	
+		
 	
+   /**
+	* test getFeedInFee()
+	*/
+	@Test
+	public void testGetFeedInFee() {
+		assertEquals(this.FEED_IN_FEE, this.otherDetails.getFeedInFee());
+	}	
+	
+   /**
+	* test getInvestmentReturnRate()
+	*/
+	@Test
+	public void testGetInvestmentReturnRate() {
+		assertEquals(this.INVESTMENT_RETURN_RATE, this.otherDetails.getInvestmentReturnRate());
+	}	
 	
    /**
 	* test getPanelLifespan()

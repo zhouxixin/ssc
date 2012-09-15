@@ -17,7 +17,7 @@ public class BankOfPanels {
 	private final Integer NUMBER_OF_ORIENTATIONS = 2; // number of orientations 
 	private final Integer NORTH = 0;			      // constant for index of north
 	private final Integer WEST = 1;                   // constant for index of west
-	
+		
 	public BankOfPanels() {
 		
 	}
@@ -115,9 +115,7 @@ public class BankOfPanels {
 	}
 	
 	public Double getOutput() {
-		return this.getSystemSize() * this.getPanelEfficiency() * 
-				(this.getPercentageOnNorthRoof() * (1 - this.getEfficiencyLossNorthRoof()) +
-				 this.getPercentageOnWestRoof() * (1 - this.getEfficiencyLossWestRoof()));		
+		return this.getOutput(1);
 	}
 	
 	/*
