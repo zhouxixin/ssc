@@ -126,7 +126,7 @@
 		Query query = new Query("info").setFilter(filter);
 		List<Entity> infos = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());		
 		for (Entity info : infos) {
-			out.write(info.getProperty("name").toString() + info.getProperty("content").toString());
+			out.write(info.getProperty("name").toString() + "-" + info.getProperty("content").toString());
 			//pageContext.setAttribute((String)info.getProperty("name"), info.getProperty("content"));			
         }		
 		%>

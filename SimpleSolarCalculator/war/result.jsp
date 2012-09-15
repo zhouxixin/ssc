@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
+<%@ page import="java.util.List" %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreService" %>
+<%@ page import="com.google.appengine.api.datastore.Query" %>
+<%@ page import="com.google.appengine.api.datastore.Entity" %>
+<%@ page import="com.google.appengine.api.datastore.FetchOptions" %>
+    
 <%! 
   	String someOutput() {
   		String s = "['3',  8,  23],['4',12,45]";
@@ -85,11 +92,25 @@
 			Header
 		</p>
 	</div>
-
+	
 	<div class="contentArea">
   	
   	<h1>Result</h1>
-
+	<div id="info">
+		<%
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		//Query.FilterPredicate filter = new Query.FilterPredicate("name", Query.FilterOperator.EQUAL, "disclaimer");
+		//Query query = new Query("info").setFilter(filter);
+		Query query = new Query("info");
+		List<Entity> infos = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
+		out.write("Please note: ");
+		for (Entity info : infos) {
+			out.write(info.getProperty("content").toString());
+			//pageContext.setAttribute((String)info.getProperty("name"), info.getProperty("content"));			
+        }		
+		%>
+	</div>
+	<br/>
   	<table class="resultTable">
   	
   		<tr>
@@ -106,7 +127,7 @@
   				
   					<tr>
   						<th style="text-align:left;" colspan="2">System summary in year 1</th>
-  						<th style="text-align:right;" colspan="2">For other details, Please click on the tags above</th>  						
+  						<th style="text-align:right; color:#E2041B;" colspan="2">For other details, Please click on the tags above</th>  						
   					</tr>
   					
   				

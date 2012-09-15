@@ -16,8 +16,8 @@ public class DataSetUpServlet extends HttpServlet {
 	private DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 	
 	public void SetUp() {		
-		    this.addToDataStore("disclaimer", "All results are merely estimates and The actual expenditure might be different.");
-	        this.addToDataStore("note", "All formulars for calculations are taken from the sample calculator on Blackboard.");	               
+		    this.addToDataStore("disclaimer", "All results are merely estimates and the actual expenditure might be different. ");
+	        this.addToDataStore("note", "All formulars for calculations are taken from the sample calculator on Blackboard. ");	               
 	}
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
