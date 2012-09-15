@@ -30,7 +30,7 @@
       function drawAnnualGenerationChart() {
         var data = google.visualization.arrayToDataTable([
           ['year', 'Annual Solar Generation (kWh)'],          
-          <% out.print(request.getAttribute("futureAnnulGeneration").toString()); %>
+          <% out.print(request.getAttribute("futureAnnualGeneration").toString()); %>
         ]);
 
         var options = {
@@ -48,7 +48,7 @@
       function drawSavingsChart() {
           var data = google.visualization.arrayToDataTable([
             ['year', 'Annual Savings (AUD)'],
-            <% out.print(request.getAttribute("futureAnnulSavings").toString()); %>                        
+            <% out.print(request.getAttribute("futureAnnualSavings").toString()); %>                        
           ]);
 
           var options = {
@@ -136,7 +136,7 @@
   						<td>Average Daily Solar Generation</td>
   						<td><% out.print(request.getAttribute("dailyGeneration").toString()); %>&nbsp;kWh</td>
   						<td>Annual Solar Generation</td>
-  						<td><% out.print(request.getAttribute("annulGeneration").toString()); %>&nbsp;kWh</td>
+  						<td><% out.print(request.getAttribute("annualGeneration").toString()); %>&nbsp;kWh</td>
   						
   					</tr>
   					
@@ -145,7 +145,7 @@
   						<td>Daily Savings</td>
   						<td><% out.print(request.getAttribute("dailySavings").toString()); %>&nbsp;AUD</td>
   						<td>Annual Savings</td>
-  						<td><% out.print(request.getAttribute("annulSavings").toString()); %>&nbsp;AUD</td>
+  						<td><% out.print(request.getAttribute("annualSavings").toString()); %>&nbsp;AUD</td>
   					</tr>
   					
   					<tr>

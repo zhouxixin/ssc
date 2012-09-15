@@ -78,14 +78,14 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 		request.setAttribute("show", show);
 		
 		request.setAttribute("dailyGeneration", sps.convertIntoFormat(sps.getAverageDailySolarGeneration()));
-		request.setAttribute("annulGeneration", sps.convertIntoFormat(sps.getAnnualSolarGeneration()));
+		request.setAttribute("annualGeneration", sps.convertIntoFormat(sps.getAnnualSolarGeneration()));
 		request.setAttribute("dailySavings", sps.convertIntoFormat(sps.getDailySavings()));
-		request.setAttribute("annulSavings", sps.convertIntoFormat(sps.getAnnualSavings()));
+		request.setAttribute("annualSavings", sps.convertIntoFormat(sps.getAnnualSavings()));
 		
-		request.setAttribute("futureAnnulSavings", sps.getFutureAnnulSavingsForChartInput());
+		request.setAttribute("futureAnnualSavings", sps.getFutureAnnulSavingsForChartInput());
 		request.setAttribute("compoundInvestmentReturn", sps.getCompoundInvestmentReturnForChartInput());
 		request.setAttribute("cumulativeIncome", sps.getCumulativeIncomeForChartInput());
-		request.setAttribute("futureAnnulGeneration", sps.getFutureAnnulSolarGenerationForChartInput());
+		request.setAttribute("futureAnnualGeneration", sps.getFutureAnnualSolarGenerationForChartInput());
 		request.setAttribute("returnOnInvestment", sps.getReturnOnInvestmentForChartInput());
 		request.setAttribute("payBackTime", sps.getPayBackTime());
 	    String url="/result.jsp"; //relative url for display jsp page

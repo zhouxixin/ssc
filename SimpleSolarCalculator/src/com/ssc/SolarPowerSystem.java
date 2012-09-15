@@ -189,7 +189,7 @@ public class SolarPowerSystem {
 		return sb.toString();
 	}
 	
-	public String getFutureAnnulSolarGenerationForChartInput() {
+	public String getFutureAnnualSolarGenerationForChartInput() {
 		StringBuffer sb = new StringBuffer();
 		for (int year = 1; year <= this.otherDetials.getPanelLifespan(); year++) {
 			sb.append("['");
@@ -298,6 +298,7 @@ public class SolarPowerSystem {
 				return year;
 			}			
 		}
+		
 		return 0;
 	}
 	

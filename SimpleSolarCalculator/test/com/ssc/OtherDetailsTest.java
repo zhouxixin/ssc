@@ -24,7 +24,7 @@ public class OtherDetailsTest {
 	private final Double EPSILON = 0.001;
 	
 
-	@Before
+	@Before@Test
 	public void setUp() throws SolarPowerSystemException {
 		this.otherDetails = new OtherDetails();
 		this.otherDetails.setPanelLifespan(PANEL_LIFESPAN);

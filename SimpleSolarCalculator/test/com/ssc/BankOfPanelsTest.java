@@ -22,7 +22,7 @@ public class BankOfPanelsTest {
 	private final Double EPSILON = 0.001;
 	
 	
-	@Before
+	@Before@Test
 	public void setUp() throws SolarPowerSystemException {
 		this.bank = new BankOfPanels();
 		this.bank.setSystemSize(SYSTEM_SIZE);

@@ -8,14 +8,53 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author Zhou
- *
- */
 public class SolarPowerSystemTest {
 	
-	private SolarPowerSystem sps;
-	private final String r = "";
+	private SolarPowerSystem sps;	
+	
+	private final Double SYSTEM_SIZE = 5.0;
+	private final Double PERCENTAGE_ON_NORTH_ROOF = 0.4;
+	private final Double PERCENTAGE_ON_WEST_ROOF = 0.6;
+	private final Double EFFICIENCY_LOSS_NORTH_ROOF = 0.05;
+	private final Double EFFICIENCY_LOSS_WEST_ROOF = 0.15;
+	private final Double PANEL_EFFICIENCY = 0.95;
+	private final Double PANEL_AGE_EFFICIENCY_LOSS = 0.03;
+	
+	private final Double INVERTER_EFFICIENCY = 0.9;
+	
+	private final Integer PANEL_LIFESPAN = 20;
+	private final Double AVERAGE_DAILY_HOURS_OF_SUNLIGHT = 5.3;
+	private final Double DAY_TIME_HOURLY_USAGE = 2.0;
+	private final Double ELECTRICITY_RATE = 0.67;
+	//private final Double ELECTRICITY_RATE_YEAR_6 = 0.8551;
+	private final Double ANNUAL_TARIFF_INCREASE = 0.05;
+	private final Double INVESTMENT_RETURN_RATE = 0.05;
+	private final Double FEED_IN_FEE = 0.5;
+	private final Double SYSTEM_COST = 25000.0;
+	
+	private final Integer EXPECTED_PAY_BACK_TIME = 9;
+	private final Double EXPECTED_DAILY_SOLAR_GENERATION = 20.165;
+	private final Double EXPECTED_DAILY_SOLAR_GENERATION_YEAR_10 = 14.434;
+	private final Double EXPECTED_REPLACEMENT_GENERATION = 10.60;
+	
+	private final Double EXPECTED_EXPORTED_GENERATION_YEAR_8 = 5.107;
+	private final Double EXPECTED_EXPORTED_GENERATION = 9.565;
+	
+	private final Double EXPECTED_DAILY_SAVINGS_YEAR_8 = 12.547;
+	private final Double EXPECTED_DAILY_SAVINGS = 11.885;
+	
+	private final Double EXPECTED_ANNUAL_SOLAR_GENERATION = 7360.289;
+	private final Double EXPECTED_ANNUAL_SOLAR_GENERATION_YEAR_8 = 5733.278;
+	
+	private final Double EXPECTED_ANNUAL_SAVINGS = 4337.874;
+	private final Double EXPECTED_ANNUAL_SAVINGS_YEAR_8 = 4579.667;
+	
+	private final Double EXPECTED_CUMULATIVE_ANNUAL_SAVINGS_YEAR_3 = 13113.444;
+	
+	private final Double EPSILON = 0.001;
+	
+	private final String FUTURE_ANNUAL = "";
+	//FutureAnnulSolarGenerationForChartInput
 
 	/**
 	 * @throws java.lang.Exception
@@ -23,31 +62,169 @@ public class SolarPowerSystemTest {
 	@Before@Test
 	public void setUp() throws Exception {
 		sps = new SolarPowerSystem();
-		sps.setSystemSize(4.95);
-        sps.setPercentagesOnOrientations(0.381, 0.619);
-        sps.setEfficiencyLossNorthRoof(0.05);
-        sps.setEfficiencyLossWestRoof(0.15);
-        sps.setPanelEfficiency(1.0);			
-        sps.setInverterEfficiency(0.96);		
-        sps.setAverageDailyHoursOfSunlight(4.5);
-        sps.setDayTimeHourlyUsage(1.0);
-        sps.setElectricityRate(0.1941);
-        sps.setFeedInFee(0.50);
-        sps.setSystemCost(18000.0);
-        sps.setPanelAgeEfficiencyLoss(0.007);
-        sps.setPanelLifespan(25);
-        sps.setAnnualTariffIncrease(0.05);
-        sps.setInvestmentReturnRate(0.05);
+		sps.setSystemSize(SYSTEM_SIZE);
+        sps.setPercentagesOnOrientations(PERCENTAGE_ON_NORTH_ROOF, PERCENTAGE_ON_WEST_ROOF);
+        sps.setEfficiencyLossNorthRoof(EFFICIENCY_LOSS_NORTH_ROOF);
+        sps.setEfficiencyLossWestRoof(EFFICIENCY_LOSS_WEST_ROOF);
+        sps.setPanelEfficiency(PANEL_EFFICIENCY);			
+        sps.setInverterEfficiency(INVERTER_EFFICIENCY);		
+        sps.setAverageDailyHoursOfSunlight(AVERAGE_DAILY_HOURS_OF_SUNLIGHT);
+        sps.setDayTimeHourlyUsage(DAY_TIME_HOURLY_USAGE);
+        sps.setElectricityRate(ELECTRICITY_RATE);
+        sps.setFeedInFee(FEED_IN_FEE);
+        sps.setSystemCost(SYSTEM_COST);
+        sps.setPanelAgeEfficiencyLoss(PANEL_AGE_EFFICIENCY_LOSS);
+        sps.setPanelLifespan(PANEL_LIFESPAN);
+        sps.setAnnualTariffIncrease(ANNUAL_TARIFF_INCREASE);
+        sps.setInvestmentReturnRate(INVESTMENT_RETURN_RATE);
 	}
 
 	
 
 	/**
-	 * Test method for {@link com.ssc.SolarPowerSystem#getAverageDailySolarGeneration()}.
+	 * Test method for Integer getPayBackTime()
+	 */
+	@Test
+	public void testGetPayBackTime() {
+		assertEquals(this.EXPECTED_PAY_BACK_TIME, this.sps.getPayBackTime());
+	}
+	
+	/**
+	 * Test method for Double getAverageDailySolarGeneration()
 	 */
 	@Test
 	public void testGetAverageDailySolarGeneration() {
-		assertEquals(this.r, this.sps.toString());
+		assertEquals(this.EXPECTED_DAILY_SOLAR_GENERATION, 
+				this.sps.getAverageDailySolarGeneration(),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getAverageDailySolarGeneration(Integer year)
+	 */
+	@Test
+	public void testGetAverageDailySolarGenerationWithYearParameter() {
+		final Integer YEAR = 10;
+		assertEquals(this.EXPECTED_DAILY_SOLAR_GENERATION_YEAR_10, 
+				this.sps.getAverageDailySolarGeneration(YEAR),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getReplacementGeneration()
+	 */
+	@Test
+	public void testGetReplacementGeneration() {
+		assertEquals(this.EXPECTED_REPLACEMENT_GENERATION, 
+				this.sps.getReplacementGeneration(),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getExportedGeneration()
+	 */
+	@Test
+	public void testGetExportedGeneration() {
+		assertEquals(this.EXPECTED_EXPORTED_GENERATION, 
+				this.sps.getExportedGeneration(),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getExportedGeneration(Integer year)
+	 */
+	@Test
+	public void testGetExportedGenerationWithYearParameter() {
+		final Integer YEAR = 8;
+		assertEquals(this.EXPECTED_EXPORTED_GENERATION_YEAR_8, 
+				this.sps.getExportedGeneration(YEAR),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getDailySavings()
+	 */
+	@Test
+	public void testGetDailySavings() {
+		assertEquals(this.EXPECTED_DAILY_SAVINGS, 
+				this.sps.getDailySavings(),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getDailySavings(Integer year)
+	 */
+	@Test
+	public void testGetDailySavingsWithYearParameter() {
+		final Integer YEAR = 8;
+		assertEquals(this.EXPECTED_DAILY_SAVINGS_YEAR_8, 
+				this.sps.getDailySavings(YEAR),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getAnnualSolarGeneration()
+	 */
+	@Test
+	public void testGetAnnualSolarGeneration() {
+		assertEquals(this.EXPECTED_ANNUAL_SOLAR_GENERATION, 
+				this.sps.getAnnualSolarGeneration(),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getAnnualSolarGeneration(Integer year)
+	 */
+	@Test
+	public void testGetAnnualSolarGenerationWithYearParameter() {
+		final Integer YEAR = 8;
+		assertEquals(this.EXPECTED_ANNUAL_SOLAR_GENERATION_YEAR_8, 
+				this.sps.getAnnualSolarGeneration(YEAR),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getAnnualSavings()
+	 */
+	@Test
+	public void testGetAnnualSavings() {
+		assertEquals(this.EXPECTED_ANNUAL_SAVINGS, 
+				this.sps.getAnnualSavings(),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getAnnualSavings(Integer year)
+	 */
+	@Test
+	public void testGetAnnualSavingsWithYearParameter() {
+		final Integer YEAR = 8;
+		assertEquals(this.EXPECTED_ANNUAL_SAVINGS_YEAR_8, 
+				this.sps.getAnnualSavings(YEAR),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for Double getCumulativeAnnualSavings(Integer year)
+	 */
+	@Test
+	public void testGetCumulativeAnnualSavings() {
+		final Integer YEAR = 3;
+		assertEquals(this.EXPECTED_CUMULATIVE_ANNUAL_SAVINGS_YEAR_3, 
+				this.sps.getCumulativeAnnualSavings(YEAR),
+				this.EPSILON);
+	}
+	
+	/**
+	 * Test method for String getFutureAnnulSolarGenerationForChartInput()
+	 * @throws SolarPowerSystemException 
+	 */
+	@Test
+	public void testGetFutureAnnulSolarGenerationForChartInput() throws SolarPowerSystemException {
+		final Integer YEAR = 3;
+		this.sps.setPanelLifespan(YEAR);
+		assertEquals(this.EXPECTED_CUMULATIVE_ANNUAL_SAVINGS_YEAR_3, 
+				this.sps.getFutureAnnualSolarGenerationForChartInput());
 	}
 
 }

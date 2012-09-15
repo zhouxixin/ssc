@@ -17,6 +17,8 @@ public class BankOfPanels {
 	private final Integer NUMBER_OF_ORIENTATIONS = 2; // number of orientations 
 	private final Integer NORTH = 0;			      // constant for index of north
 	private final Integer WEST = 1;                   // constant for index of west
+	
+	private final Integer FIRST_YEAR = 1;
 		
 	public BankOfPanels() {
 		
@@ -115,7 +117,7 @@ public class BankOfPanels {
 	}
 	
 	public Double getOutput() {
-		return this.getOutput(1);
+		return this.getOutput(this.FIRST_YEAR);
 	}
 	
 	/*
