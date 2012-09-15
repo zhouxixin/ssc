@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreService" %>
+<%@ page import="com.google.appengine.api.datastore.Query" %>
+<%@ page import="com.google.appengine.api.datastore.Entity" %>
+<%@ page import="com.google.appengine.api.datastore.FetchOptions" %>
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -111,7 +120,17 @@
 	</div>
 	<div class = "footer">
 		<p>
-			Footer
+		<%
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		Query.FilterPredicate filter = new Query.FilterPredicate("name", Query.FilterOperator.EQUAL, "disclaimer");
+		Query query = new Query("info").setFilter(filter);
+		List<Entity> infos = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());		
+		for (Entity info : infos) {
+			out.write(info.getProperty("name").toString() + info.getProperty("content").toString());
+			//pageContext.setAttribute((String)info.getProperty("name"), info.getProperty("content"));			
+        }		
+		%>
+			
 		</p>
 	</div>
 	

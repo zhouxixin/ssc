@@ -7,8 +7,16 @@
 		<servlet-name>SimpleSolarCalculator</servlet-name>
 		<url-pattern>/simplesolarcalculator</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>DataSetUp</servlet-name>
+		<servlet-class>com.ssc.DataSetUpServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>DataSetUp</servlet-name>
+		<url-pattern>/datasetup</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>start.jsp</welcome-file>
+		<welcome-file>datasetup</welcome-file>
 	</welcome-file-list>
  <servlet>
   <servlet-name>SystemServiceServlet</servlet-name>
