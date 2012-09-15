@@ -53,7 +53,19 @@ public class SolarPowerSystemTest {
 	
 	private final Double EPSILON = 0.001;
 	
-	private final String FUTURE_ANNUAL = "";
+	private final String EXPECTED_FUTURE_ANNUAL_SOLAR_GENERATION_FOR_CHART_INPUT = 
+			"['1',7360.29],['2',7127.86],['3',6895.43]";
+	
+	private final String EXPECTED_FUTURE_ANNUAL_SAVINGS_FOR_CHART_INPUT = 
+			"['1',4337.87],['2',4351.27],['3',4371.15]";
+	
+	private final String EXPECTED_CUMULATIVE_INCOME_FOR_CHART_INPUT = "";
+	private final String EXPECTED_COMPOUND_INVESTMENT_RETURN_FOR_CHART_INPUT = "";
+	
+	private final String EXPECTED_RETURN_ON_INVESTMENT_FOR_CHART_INPUT = 
+			"['1',4337.87,26250,1250],['2',8702.54,27562.5,2500],['3',13113.44,28940.63,3750]";
+	
+	
 	//FutureAnnulSolarGenerationForChartInput
 
 	/**
@@ -223,8 +235,32 @@ public class SolarPowerSystemTest {
 	public void testGetFutureAnnulSolarGenerationForChartInput() throws SolarPowerSystemException {
 		final Integer YEAR = 3;
 		this.sps.setPanelLifespan(YEAR);
-		assertEquals(this.EXPECTED_CUMULATIVE_ANNUAL_SAVINGS_YEAR_3, 
+		assertEquals(this.EXPECTED_FUTURE_ANNUAL_SOLAR_GENERATION_FOR_CHART_INPUT, 
 				this.sps.getFutureAnnualSolarGenerationForChartInput());
+	}
+	
+	/**
+	 * Test method for String getFutureAnnualSavingsForChartInput()
+	 * @throws SolarPowerSystemException 
+	 */
+	@Test
+	public void testGetFutureAnnualSavingsForChartInput() throws SolarPowerSystemException {
+		final Integer YEAR = 3;
+		this.sps.setPanelLifespan(YEAR);
+		assertEquals(this.EXPECTED_FUTURE_ANNUAL_SAVINGS_FOR_CHART_INPUT, 
+				this.sps.getFutureAnnualSavingsForChartInput());
+	}
+	
+	/**
+	 * Test method for String getReturnOnInvestmentForChartInput()
+	 * @throws SolarPowerSystemException 
+	 */
+	@Test
+	public void testGetReturnOnInvestmentForChartInput() throws SolarPowerSystemException {
+		final Integer YEAR = 3;
+		this.sps.setPanelLifespan(YEAR);
+		assertEquals(this.EXPECTED_RETURN_ON_INVESTMENT_FOR_CHART_INPUT, 
+				this.sps.getReturnOnInvestmentForChartInput());
 	}
 
 }

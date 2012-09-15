@@ -74,15 +74,15 @@ public class SimpleSolarCalculatorServlet extends HttpServlet {
 		response.sendRedirect(response.encodeRedirectURL(destination));
 		*/
 		//~~~~~~~
-		String show = sps.toString();
-		request.setAttribute("show", show);
+		//String show = sps.toString();
+		//request.setAttribute("show", show);
 		
 		request.setAttribute("dailyGeneration", sps.convertIntoFormat(sps.getAverageDailySolarGeneration()));
 		request.setAttribute("annualGeneration", sps.convertIntoFormat(sps.getAnnualSolarGeneration()));
 		request.setAttribute("dailySavings", sps.convertIntoFormat(sps.getDailySavings()));
 		request.setAttribute("annualSavings", sps.convertIntoFormat(sps.getAnnualSavings()));
 		
-		request.setAttribute("futureAnnualSavings", sps.getFutureAnnulSavingsForChartInput());
+		request.setAttribute("futureAnnualSavings", sps.getFutureAnnualSavingsForChartInput());
 		request.setAttribute("compoundInvestmentReturn", sps.getCompoundInvestmentReturnForChartInput());
 		request.setAttribute("cumulativeIncome", sps.getCumulativeIncomeForChartInput());
 		request.setAttribute("futureAnnualGeneration", sps.getFutureAnnualSolarGenerationForChartInput());

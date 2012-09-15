@@ -176,19 +176,7 @@
   			</td>
   		</tr>
   	
-  	</table>	
-<!--  
-
-<div id="haha" align="left">
-  				<pre>
-  				<code>
-  				<% out.print(request.getAttribute("show").toString()); %>
-  				</code>
-  				</pre>  	
-  			</div>
-
--->
-  			
+  	</table> 			
 
 <form name="start over" action="/" method="post">
 	<div class="buttonArea">
