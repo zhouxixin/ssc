@@ -17,6 +17,10 @@ public class OtherDetailsTest {
 	private final Double FEED_IN_FEE = 0.5;
 	private final Double SYSTEM_COST = 25000.0;
 	
+	private final Double EXPECTED_INVESTMENT_INCOME = 1250.0;
+	private final Double EXPECTED_CUMULATIVE_INCOME_YEAR_5 = 6250.0;
+	private final Double EXPECTED_COMPOUND_INVESTMENT_RETURN_YEAR_3 = 28940.625;
+	
 	private final Double EPSILON = 0.001;
 	
 
@@ -225,7 +229,7 @@ public class OtherDetailsTest {
 	}
 	
 
-	 /**
+   /**
   	* test setSystemCost(Double input)
   	*  
   	* 1. valid input
@@ -254,7 +258,7 @@ public class OtherDetailsTest {
 	
 	
 	
-	/**
+   /**
 	* test getSystemCost()
 	*/
 	@Test
@@ -296,7 +300,7 @@ public class OtherDetailsTest {
 				this.otherDetails.getAverageDailyHoursOfSunlight());
 	}
 	
-  /**
+   /**
 	* test getDayTimeHourlyUsage()
 	*/
 	@Test
@@ -305,7 +309,7 @@ public class OtherDetailsTest {
 				this.otherDetails.getDayTimeHourlyUsage());
 	}
 	
-   /**
+  /**
 	* test getElectricityRate()
 	*/
 	@Test
@@ -314,7 +318,7 @@ public class OtherDetailsTest {
 				this.otherDetails.getElectricityRate());
 	}
 		
-	/**
+   /**
 	* test getElectricityRate(Integer year)
 	*/
 	@Test
@@ -325,7 +329,7 @@ public class OtherDetailsTest {
 				EPSILON);
 	}
 	
-	/**
+   /**
 	* test getAnnualTariffIncrease()
 	*/
 	@Test
@@ -334,6 +338,36 @@ public class OtherDetailsTest {
 				this.otherDetails.getAnnualTariffIncrease());
 	}
 	
+   /**
+	* test getInvestmentIncome()
+	*/
+	@Test
+	public void testGetInvestmentIncome() {
+		assertEquals(this.EXPECTED_INVESTMENT_INCOME, 
+				this.otherDetails.getInvestmentIncome(),
+				EPSILON);
+	}
 	
+   /**
+	* test getCumulativeIncome(Integer year)
+	*/
+	@Test
+	public void testCumulativeIncome() {
+		final Integer YEAR = 5;			
+		assertEquals(this.EXPECTED_CUMULATIVE_INCOME_YEAR_5, 
+				this.otherDetails.getCumulativeIncome(YEAR),
+				EPSILON);
+	}
+	
+   /**
+	* test getCompoundInvestmentReturn(Integer year)
+	*/
+	@Test
+	public void testCompoundInvestmentReturn() {
+		final Integer YEAR = 3;			
+		assertEquals(this.EXPECTED_COMPOUND_INVESTMENT_RETURN_YEAR_3, 
+				this.otherDetails.getCompoundInvestmentReturn(YEAR),
+				EPSILON);
+	}
 	
 }

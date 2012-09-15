@@ -109,7 +109,7 @@ function isNumeric(fieldName) {
 }
 
 function isPositive(fieldName) {
-	if (fieldName.value > 0) {		
+	if (fieldName.value >= 0) {		
 		return true;
 	} else {
 		return false;
