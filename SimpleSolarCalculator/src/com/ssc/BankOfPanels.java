@@ -133,9 +133,11 @@ public class BankOfPanels {
 	 */
 	
 	public Double getOutput(Integer year) {
-		return this.getSystemSize() * this.getPanelEfficiency(year) * 
+		Double result = this.getSystemSize() * this.getPanelEfficiency(year) * 				
 				(this.getPercentageOnNorthRoof() * (1 - this.getEfficiencyLossNorthRoof()) +
-				 this.getPercentageOnWestRoof() * (1 - this.getEfficiencyLossWestRoof()));
+						this.getPercentageOnWestRoof() * (1 - this.getEfficiencyLossWestRoof()));
+		
+		return (result >= 0.0) ? result : 0.0;			
 	}
 	
 	public Double getPanelEfficiency() {
