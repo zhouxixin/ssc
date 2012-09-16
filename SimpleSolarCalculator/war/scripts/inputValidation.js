@@ -18,9 +18,7 @@ function formValidationOld() {
 		allGood = flase;
 	}
 	
-	return allGood;
-	
-	
+	return allGood;	
 	
 	*/
 	
@@ -45,10 +43,7 @@ function formValidationOld() {
 		return false;		
 	} else {
 		return true;
-	}
-	
-	
-		
+	}		
 	
 	/*
 	alert("Cool! Submitted successfully.");
@@ -108,7 +103,7 @@ function isNumeric(fieldName) {
 	}
 }
 
-function isPositive(fieldName) {
+function isGreaterOrEqualToZero(fieldName) {
 	if (fieldName.value >= 0) {		
 		return true;
 	} else {
@@ -117,7 +112,7 @@ function isPositive(fieldName) {
 }
 
 function isValidDecimal(fieldName) {
-	if (!isMissing(fieldName) && isNumeric(fieldName) && isPositive(fieldName)) {
+	if (!isMissing(fieldName) && isNumeric(fieldName) && isGreaterOrEqualToZero(fieldName)) {
 		fieldName.style.border = "thin solid #007b43";
 		return true;
 	} else {
